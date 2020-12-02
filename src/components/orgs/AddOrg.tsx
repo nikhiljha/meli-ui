@@ -1,0 +1,106 @@
+import React, { useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
+import { uniqueId } from 'lodash';
+import { FormProvider, useForm } from 'react-hook-form';
+import { useEnv } from '../../providers/EnvProvider';
+import { axios } from '../../providers/axios';
+import { Tooltip, tooltipToggle } from '../../commons/components/Tooltip';
+import { OrgNameInput } from './settings/OrgNameInput';
+import { Button } from '../../commons/components/Button';
+import { CardModal } from '../../commons/components/modals/CardModal';
+import { useLoading } from '../../commons/hooks/use-loading';
+import { UserOrg } from '../auth/user-org';
+
+interface Form {
+  name: string;
+}
+
+function Modal({ closeModal, onAdded }: {
+  closeModal;
+  onAdded: (org: UserOrg) => void;
+}) {
+  const env = useEnv();
+  const methods = useForm<Form>({
+    mode: 'onChange',
+  });
+  const [loading, setLoading] = useLoading(false);
+  const { handleSubmit, formState: { isDirty } } = methods;
+
+  const onSubmit = (form: Form) => {
+    setLoading(true);
+    axios
+      .post<UserOrg>(`${env.MELI_SERVER_URL}/api/v1/orgs`, form)
+      .then(({ data }) => {
+        onAdded(data);
+      })
+      .finally(() => {
+        closeModal();
+      })
+      .catch(err => {
+        toast(`Could not create org: ${err}`, {
+          type: 'error',
+        });
+      })
+      .finally(() => setLoading(false));
+  };
+
+  const [inputRef, setInputRef] = useState<HTMLInputElement>();
+
+  useEffect(() => {
+    if (inputRef) {
+      inputRef.focus();
+    }
+  }, [inputRef]);
+
+  return (
+    <FormProvider {...methods}>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <OrgNameInput setInputRef={setInputRef} />
+        <div className="d-flex justify-content-end">
+          <Button
+            type="submit"
+            className="btn btn-primary"
+            loading={loading}
+            disabled={!isDirty}
+          >
+            Save
+          </Button>
+        </div>
+      </form>
+    </FormProvider>
+  );
+}
+
+export function AddOrg({
+  children, className, tooltip = true, onAdded,
+}: {
+  children;
+  className?;
+  tooltip?: boolean;
+  onAdded: (org: UserOrg) => void;
+}) {
+  const [uid] = useState(uniqueId());
+  const [isOpen, setIsOpen] = useState(false);
+  const openModal = () => setIsOpen(true);
+  const closeModal = () => setIsOpen(false);
+
+  return (
+    <>
+      <div
+        onClick={openModal}
+        className={className}
+        {...tooltipToggle(uid)}
+      >
+        {children}
+      </div>
+      {tooltip && (
+        <Tooltip id={uid}>
+          Create org
+        </Tooltip>
+      )}
+      <CardModal isOpen={isOpen} closeModal={closeModal} title="Create org">
+        <Modal closeModal={closeModal} onAdded={onAdded} />
+      </CardModal>
+    </>
+  );
+}
