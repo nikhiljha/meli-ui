@@ -3,6 +3,13 @@
 
 ### Features
 
+* initial commit ([5e6d11f](https://github.com/getmeli/meli-ui/commit/5e6d11f3bcec53ef76cb0869b1d7592fc9d5b95c))
+
+# 1.0.0-next.1 (2020-12-02)
+
+
+### Features
+
 * initial release ([e0e7f9a](https://github.com/gomeli/meli-ui/commit/e0e7f9ad7860fafe58c1d0478822f96069a5a012))
 
 # 1.0.0-beta.1 (2020-12-02)
