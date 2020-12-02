@@ -1,3 +1,10 @@
+# [1.0.0-next.2](https://github.com/getmeli/meli-ui/compare/v1.0.0-next.1...v1.0.0-next.2) (2020-12-02)
+
+
+### Features
+
+* rename docker image ([78bd000](https://github.com/getmeli/meli-ui/commit/78bd0004d88382473ec656e56e57de49f050c98e))
+
 # 1.0.0-next.1 (2020-12-02)
 
 
