@@ -98,6 +98,7 @@ export function BranchRedirectForm({
             ref={register({
               required,
               maxLength: maxLength(),
+              pattern: /^\//,
               validate: value => {
                 const count = getValues().redirects?.filter(val => val.path === value)?.length || 0;
                 return count <= 1 ? undefined : 'Branch name must be unique';
