@@ -1,3 +1,10 @@
+# [1.0.0-next.4](https://github.com/getmeli/meli-ui/compare/v1.0.0-next.3...v1.0.0-next.4) (2020-12-03)
+
+
+### Features
+
+* rename server api url var ([76b6aef](https://github.com/getmeli/meli-ui/commit/76b6aefa56b07a5f505b1edaa8d3f7a783c22e7b))
+
 # [1.0.0-next.3](https://github.com/getmeli/meli-ui/compare/v1.0.0-next.2...v1.0.0-next.3) (2020-12-03)
 
 
