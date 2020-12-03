@@ -26,7 +26,7 @@ function ModalContent({
   const onSubmit = formData => {
     setLoading(true);
     axios
-      .put<Branch>(`${env.MELI_SERVER_URL}/api/v1/sites/${siteId}/branches/${branchId}/name`, formData)
+      .put<Branch>(`${env.MELI_API_URL}/api/v1/sites/${siteId}/branches/${branchId}/name`, formData)
       .then(({ data }) => onRenamed(data))
       .catch(err => {
         toast(`Could not rename branch: ${err}`, {

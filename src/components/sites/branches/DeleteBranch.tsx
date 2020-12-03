@@ -22,7 +22,7 @@ export function DeleteBranch({
   const deleteToken = () => {
     setLoading(true);
     return axios
-      .delete(`${env.MELI_SERVER_URL}/api/v1/sites/${siteId}/branches/${branchId}`)
+      .delete(`${env.MELI_API_URL}/api/v1/sites/${siteId}/branches/${branchId}`)
       .then(() => {
         setIsOpen(false);
         onDelete();

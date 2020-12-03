@@ -15,7 +15,7 @@ export function getMembers(
   query?: OrgMembersSearchQuery,
 ): Promise<Page<OrgMember>> {
   return axios
-    .get(`${env.MELI_SERVER_URL}/api/v1/orgs/${orgId}/members`, {
+    .get(`${env.MELI_API_URL}/api/v1/orgs/${orgId}/members`, {
       params: {
         ...query,
       },

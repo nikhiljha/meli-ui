@@ -21,7 +21,7 @@ export function DeleteMember({
   const deleteMember = () => {
     setLoading(true);
     return axios
-      .delete(`${env.MELI_SERVER_URL}/api/v1/members/${memberId}`)
+      .delete(`${env.MELI_API_URL}/api/v1/members/${memberId}`)
       .then(() => {
         setIsOpen(false);
         onDelete();

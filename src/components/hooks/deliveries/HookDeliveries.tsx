@@ -33,7 +33,7 @@ export function HookDeliveries() {
     setLoading(true);
     setError(undefined);
     axios
-      .get(`${env.MELI_SERVER_URL}/api/v1/${context}/hooks/${hookId}/deliveries`, {
+      .get(`${env.MELI_API_URL}/api/v1/${context}/hooks/${hookId}/deliveries`, {
         params: pagination,
       })
       .then(({ data }) => {

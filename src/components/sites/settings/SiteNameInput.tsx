@@ -17,7 +17,7 @@ async function validateName(env: Env, name: string, previousName?: string): Prom
     return undefined;
   }
   return axios
-    .post<string | undefined>(`${env.MELI_SERVER_URL}/api/v1/sites.validate/name`, {
+    .post<string | undefined>(`${env.MELI_API_URL}/api/v1/sites.validate/name`, {
       name,
     })
     .then(({ data }) => data || undefined)

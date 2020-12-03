@@ -22,7 +22,7 @@ export function DeleteSite({
   const deleteSite = () => {
     setLoading(true);
     return axios
-      .delete(`${env.MELI_SERVER_URL}/api/v1/sites/${id}`)
+      .delete(`${env.MELI_API_URL}/api/v1/sites/${id}`)
       .then(() => {
         setIsOpen(false);
         routerHistory.push(`/teams/${teamId}/sites`);

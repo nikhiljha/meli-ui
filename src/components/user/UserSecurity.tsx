@@ -14,7 +14,7 @@ function Disconnect() {
   const disconnect = () => {
     setLoading(true);
     return axios
-      .put(`${env.MELI_SERVER_URL}/api/v1/user/disconnect`)
+      .put(`${env.MELI_API_URL}/api/v1/user/disconnect`)
       .then(() => {
         signOut();
       })

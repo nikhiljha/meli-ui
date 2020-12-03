@@ -28,7 +28,7 @@ export function ApiTokenList() {
   useEffect(() => {
     setLoading(true);
     setError(undefined);
-    axios.get<ApiToken[]>(`${env.MELI_SERVER_URL}/api/v1/api-tokens`)
+    axios.get<ApiToken[]>(`${env.MELI_API_URL}/api/v1/api-tokens`)
       .then(({ data }) => data.sort(sortTokens))
       .then(setItems)
       .catch(setError)

@@ -26,7 +26,7 @@ export function SetBranchRelease({
   const setBranchRelease = () => {
     setLoading(true);
     return axios
-      .put<Branch>(`${env.MELI_SERVER_URL}/api/v1/sites/${siteId}/branches/${branchId}/release`, {
+      .put<Branch>(`${env.MELI_API_URL}/api/v1/sites/${siteId}/branches/${branchId}/release`, {
         release: releaseId,
       })
       .then(() => {

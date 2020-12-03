@@ -21,7 +21,7 @@ export function HookEvents() {
   useEffect(() => {
     setLoading(true);
     setError(undefined);
-    axios.get<string[]>(`${env.MELI_SERVER_URL}/api/v1/${context}/hook-events`)
+    axios.get<string[]>(`${env.MELI_API_URL}/api/v1/${context}/hook-events`)
       .then(({ data }) => data)
       .then(setEvents)
       .catch(setError)

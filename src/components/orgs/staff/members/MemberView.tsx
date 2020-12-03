@@ -26,7 +26,7 @@ function AdminToggle({ member, setMember }: {
   const toggle = () => {
     setLoading(true);
     axios
-      .put<OrgMember>(`${env.MELI_SERVER_URL}/api/v1/members/${member._id}`, {
+      .put<OrgMember>(`${env.MELI_API_URL}/api/v1/members/${member._id}`, {
         admin: !member.admin,
       })
       .then(({ data }) => data)

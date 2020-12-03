@@ -27,7 +27,7 @@ function AddTokenModal({
   const [loading, setLoading] = useLoading(false);
 
   const onChange = token => axios
-    .post(`${env.MELI_SERVER_URL}/api/v1/sites/${siteId}/tokens`, token)
+    .post(`${env.MELI_API_URL}/api/v1/sites/${siteId}/tokens`, token)
     .then(({ data }) => {
       onAdded(data);
     })

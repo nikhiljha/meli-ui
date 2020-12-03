@@ -21,7 +21,7 @@ import { useBranch } from '../branches/BranchView';
 function UploadReleaseSnippet({ siteId, className }: { siteId: string; className? }) {
   const env = useEnv();
   const snippet = `npx @meli/cli upload \\
-    --url ${env.MELI_SERVER_URL} \\
+    --url ${env.MELI_API_URL} \\
     --site ${siteId} \\
     --token <token> \\
     <path>`;

@@ -28,7 +28,7 @@ export function Invites() {
   useEffect(() => {
     setLoading(true);
     setError(undefined);
-    axios.get(`${env.MELI_SERVER_URL}/api/v1/orgs/${currentOrg.org._id}/invites`)
+    axios.get(`${env.MELI_API_URL}/api/v1/orgs/${currentOrg.org._id}/invites`)
       .then(({ data }) => data)
       .then(setItems)
       .catch(setError)

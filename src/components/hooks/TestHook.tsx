@@ -18,7 +18,7 @@ export function TestHook({
   const test = () => {
     setLoading(true);
     axios
-      .post(`${env.MELI_SERVER_URL}/api/v1/sites/notifications/test`, config)
+      .post(`${env.MELI_API_URL}/api/v1/sites/notifications/test`, config)
       .then(() => toast('It worked !', {
         type: 'success',
       }))

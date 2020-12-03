@@ -51,7 +51,7 @@ export function TeamView() {
     setLoading(true);
     setError(undefined);
     axios
-      .get<Team>(`${env.MELI_SERVER_URL}/api/v1/teams/${teamId}`)
+      .get<Team>(`${env.MELI_API_URL}/api/v1/teams/${teamId}`)
       .then(({ data }) => data)
       .then(setTeam)
       .catch(setError)

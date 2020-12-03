@@ -42,7 +42,7 @@ export function HookView() {
     setLoading(true);
     setError(undefined);
     axios
-      .get<Hook>(`${env.MELI_SERVER_URL}/api/v1/${context}/hooks/${hookId}`)
+      .get<Hook>(`${env.MELI_API_URL}/api/v1/${context}/hooks/${hookId}`)
       .then(({ data }) => setHook(data))
       .catch(setError)
       .catch(err => toast(`Could not get hook: ${err}`, {
@@ -53,7 +53,7 @@ export function HookView() {
 
   const onChange = useCallback(
     (formData: Hook): Promise<void> => axios
-      .put<Hook>(`${env.MELI_SERVER_URL}/api/v1/${context}/hooks/${hookId}`, formData)
+      .put<Hook>(`${env.MELI_API_URL}/api/v1/${context}/hooks/${hookId}`, formData)
       .then(({ data }) => setHook(data)),
     [env, hookId, context],
   );

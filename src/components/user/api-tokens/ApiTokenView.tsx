@@ -38,7 +38,7 @@ export function ApiTokenView() {
     setLoading(true);
     setError(undefined);
     axios
-      .get(`${env.MELI_SERVER_URL}/api/v1/api-tokens/${apiTokenId}`)
+      .get(`${env.MELI_API_URL}/api/v1/api-tokens/${apiTokenId}`)
       .then(({ data }) => data)
       .then(setApiToken)
       .catch(setError)
@@ -50,7 +50,7 @@ export function ApiTokenView() {
 
   const onChange = useCallback(
     (formData: ApiTokenFormData): Promise<void> => axios
-      .put<ApiToken>(`${env.MELI_SERVER_URL}/api/v1/api-tokens/${apiTokenId}`, {
+      .put<ApiToken>(`${env.MELI_API_URL}/api/v1/api-tokens/${apiTokenId}`, {
         name: formData.name,
         activatesAt: formData.activePeriod.from,
         expiresAt: formData.activePeriod.to,

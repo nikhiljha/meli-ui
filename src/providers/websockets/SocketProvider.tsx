@@ -18,7 +18,7 @@ export function SocketProvider(props) {
     if (socketRef.current) {
       socketRef.current.close();
     }
-    const sock: SocketIOClient.Socket = openSocket(env.MELI_SERVER_URL);
+    const sock: SocketIOClient.Socket = openSocket(env.MELI_API_URL);
     socketRef.current = sock;
     setSocket(sock);
   }, [env]);

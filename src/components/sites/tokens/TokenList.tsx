@@ -28,7 +28,7 @@ export function TokenList() {
   useEffect(() => {
     setLoading(true);
     setError(undefined);
-    axios.get(`${env.MELI_SERVER_URL}/api/v1/sites/${siteId}/tokens`)
+    axios.get(`${env.MELI_API_URL}/api/v1/sites/${siteId}/tokens`)
       .then(({ data }) => data)
       .then(setItems)
       .catch(setError)

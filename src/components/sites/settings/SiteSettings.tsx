@@ -52,7 +52,7 @@ export function SiteSettings() {
   const onSubmit = (updatedSite: Settings) => {
     setLoading(true);
     axios
-      .put<Site>(`${env.MELI_SERVER_URL}/api/v1/sites/${siteId}`, updatedSite)
+      .put<Site>(`${env.MELI_API_URL}/api/v1/sites/${siteId}`, updatedSite)
       .then(({ data }) => data)
       .then(setSite)
       .then(() => toast('Site saved', {

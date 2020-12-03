@@ -24,7 +24,7 @@ function ModalContent({
   const { handleSubmit, formState: { isDirty } } = methods;
 
   const onChange = formData => axios
-    .post<Branch>(`${env.MELI_SERVER_URL}/api/v1/sites/${siteId}/branches`, {
+    .post<Branch>(`${env.MELI_API_URL}/api/v1/sites/${siteId}/branches`, {
       ...formData,
       releaseId,
     })

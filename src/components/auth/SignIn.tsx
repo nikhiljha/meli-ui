@@ -17,7 +17,7 @@ function SignInWithGitea() {
   return (
     <a
       className={classNames(styles.button, styles.gitea)}
-      href={`${env.MELI_SERVER_URL}/auth/gitea`}
+      href={`${env.MELI_API_URL}/auth/gitea`}
     >
       <div className={styles.iconContainer}>
         <img
@@ -36,7 +36,7 @@ function SignInWithGitlab() {
   return (
     <a
       className={classNames(styles.button, styles.gitlab)}
-      href={`${env.MELI_SERVER_URL}/auth/gitlab`}
+      href={`${env.MELI_API_URL}/auth/gitlab`}
     >
       <div className={styles.iconContainer}>
         <img
@@ -55,7 +55,7 @@ function SignInWithGithub() {
   return (
     <a
       className={classNames(styles.button, styles.github)}
-      href={`${env.MELI_SERVER_URL}/auth/github`}
+      href={`${env.MELI_API_URL}/auth/github`}
     >
       <div className={styles.iconContainer}>
         <img
@@ -74,7 +74,7 @@ function SignInWithGoogle() {
   return (
     <a
       className={classNames(styles.button, styles.google)}
-      href={`${env.MELI_SERVER_URL}/auth/google`}
+      href={`${env.MELI_API_URL}/auth/google`}
     >
       <div className={styles.iconContainer}>
         <FontAwesomeIcon
@@ -96,7 +96,7 @@ export function SignIn() {
   useEffect(() => {
     setLoading(true);
     axios
-      .get(`${env.MELI_SERVER_URL}/auth/methods`)
+      .get(`${env.MELI_API_URL}/auth/methods`)
       .then(({ data }) => data)
       .then(setSignInMethods)
       .catch(setError)

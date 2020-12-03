@@ -15,7 +15,7 @@ export function AddHook() {
   const env = useEnv();
   const onChange = useCallback(
     (data: Hook): Promise<void> => axios
-      .post<Hook>(`${env.MELI_SERVER_URL}/api/v1/${context}/hooks`, data)
+      .post<Hook>(`${env.MELI_API_URL}/api/v1/${context}/hooks`, data)
       .then(() => {
         routerHistory.push(routeUp(url));
       })

@@ -39,7 +39,7 @@ export function OrgSettings() {
   const onSubmit = (settings: Settings) => {
     setLoading(true);
     axios
-      .put<Org>(`${env.MELI_SERVER_URL}/api/v1/orgs/${org._id}`, settings)
+      .put<Org>(`${env.MELI_API_URL}/api/v1/orgs/${org._id}`, settings)
       .then(({ data }) => data)
       .then(setOrg)
       .then(() => toast('Org saved', {

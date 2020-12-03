@@ -45,7 +45,7 @@ export function BranchProtection({
   const setPassword = (formData: FormData) => {
     setLoading(true);
     axios
-      .put<Branch>(`${env.MELI_SERVER_URL}/api/v1/sites/${siteId}/branches/${branch._id}/password`, formData)
+      .put<Branch>(`${env.MELI_API_URL}/api/v1/sites/${siteId}/branches/${branch._id}/password`, formData)
       .then(({ data }) => {
         onChange(data);
         closeModal();
@@ -61,7 +61,7 @@ export function BranchProtection({
   const removePassword = () => {
     setLoading(true);
     axios
-      .delete<Branch>(`${env.MELI_SERVER_URL}/api/v1/sites/${siteId}/branches/${branch._id}/password`)
+      .delete<Branch>(`${env.MELI_API_URL}/api/v1/sites/${siteId}/branches/${branch._id}/password`)
       .then(({ data }) => onChange(data))
       .catch(err => {
         toast(`Could not rename branch: ${err}`, {

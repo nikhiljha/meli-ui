@@ -19,7 +19,7 @@ function useRelease(releaseId: string) {
       setLoading(true);
       setError(undefined);
       axios
-        .get<Release>(`${env.MELI_SERVER_URL}/api/v1/releases/${releaseId}`)
+        .get<Release>(`${env.MELI_API_URL}/api/v1/releases/${releaseId}`)
         .then(({ data }) => data)
         .then(setRelease)
         .catch(setError)

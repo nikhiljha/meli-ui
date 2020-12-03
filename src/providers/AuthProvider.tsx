@@ -34,7 +34,7 @@ export function AuthProvider(props) {
 
   const signOut = () => {
     axios
-      .post(`${env.MELI_SERVER_URL}/auth/signout`)
+      .post(`${env.MELI_API_URL}/auth/signout`)
       .then(() => setUser(null))
       // force app to reset (TODO graceful logout)
       .then(() => {
@@ -50,7 +50,7 @@ export function AuthProvider(props) {
   useEffect(() => {
     if (env) {
       axios
-        .get(`${env.MELI_SERVER_URL}/api/v1/user`)
+        .get(`${env.MELI_API_URL}/api/v1/user`)
         .then(({ data }) => setUser(data))
         .catch(err => {
           toast(`Could not get user: ${err}`, {

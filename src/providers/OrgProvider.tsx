@@ -49,8 +49,8 @@ export function OrgProvider(props) {
   const changeCurrentOrg = (environment: Env, orgId: string) => (
     Promise
       .all([
-        axios.get<Org>(`${environment.MELI_SERVER_URL}/api/v1/orgs/${orgId}`),
-        axios.get<OrgMember>(`${environment.MELI_SERVER_URL}/api/v1/orgs/${orgId}/member`),
+        axios.get<Org>(`${environment.MELI_API_URL}/api/v1/orgs/${orgId}`),
+        axios.get<OrgMember>(`${environment.MELI_API_URL}/api/v1/orgs/${orgId}/member`),
       ])
       .then(([{ data: org }, { data: member }]) => {
         const newCurrentOrg: CurrentOrg = {

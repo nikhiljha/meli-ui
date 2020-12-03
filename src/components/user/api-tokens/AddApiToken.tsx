@@ -10,7 +10,7 @@ export function AddApiToken() {
   const env = useEnv();
   const onChange = useCallback(
     (data: ApiTokenFormData): Promise<void> => axios
-      .post<ApiToken>(`${env.MELI_SERVER_URL}/api/v1/api-tokens`, {
+      .post<ApiToken>(`${env.MELI_API_URL}/api/v1/api-tokens`, {
         name: data.name,
         activesAt: data.activePeriod.from,
         expiresAt: data.activePeriod.to,

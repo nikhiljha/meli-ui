@@ -43,7 +43,7 @@ export function ApiScopes({
   useEffect(() => {
     setLoading(true);
     axios
-      .get<ApiEndpoint[]>(`${env.MELI_SERVER_URL}/api/v1/api-endpoints`)
+      .get<ApiEndpoint[]>(`${env.MELI_API_URL}/api/v1/api-endpoints`)
       .then(({ data }) => buildGroups(data))
       .then(setGroups)
       .catch(setError)

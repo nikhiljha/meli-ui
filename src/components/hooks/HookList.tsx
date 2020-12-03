@@ -29,7 +29,7 @@ export function HookList() {
   useEffect(() => {
     setLoading(true);
     setError(undefined);
-    axios.get<Hook[]>(`${env.MELI_SERVER_URL}/api/v1/${context}/hooks`)
+    axios.get<Hook[]>(`${env.MELI_API_URL}/api/v1/${context}/hooks`)
       .then(({ data }) => data.sort(sortHooks))
       .then(setHooks)
       .catch(setError)

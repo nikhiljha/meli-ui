@@ -16,7 +16,7 @@ export function getReleases(
   query?: ReleaseSearchQuery,
 ): Promise<Page<Release>> {
   return axios
-    .get(`${env.MELI_SERVER_URL}/api/v1/sites/${siteId}/releases`, {
+    .get(`${env.MELI_API_URL}/api/v1/sites/${siteId}/releases`, {
       params: {
         ...query,
         search: query.search || undefined,

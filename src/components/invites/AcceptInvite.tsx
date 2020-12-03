@@ -22,7 +22,7 @@ export function AcceptInvite({
   const accept = () => {
     setLoading(true);
     return axios
-      .put<UserOrg>(`${env.MELI_SERVER_URL}/api/v1/invites/${inviteId}/accept`, {
+      .put<UserOrg>(`${env.MELI_API_URL}/api/v1/invites/${inviteId}/accept`, {
         token,
       })
       .then(({ data }) => data)

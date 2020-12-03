@@ -29,7 +29,7 @@ export function Members() {
   useEffect(() => {
     setLoading(true);
     setError(undefined);
-    axios.get(`${env.MELI_SERVER_URL}/api/v1/teams/${teamId}/members`)
+    axios.get(`${env.MELI_API_URL}/api/v1/teams/${teamId}/members`)
       .then(({ data }) => data)
       .then(setItems)
       .catch(setError)

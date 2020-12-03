@@ -21,7 +21,7 @@ export function DeleteApiToken({
   const deleteToken = () => {
     setLoading(true);
     return axios
-      .delete(`${env.MELI_SERVER_URL}/api/v1/api-tokens/${tokenId}`)
+      .delete(`${env.MELI_API_URL}/api/v1/api-tokens/${tokenId}`)
       .then(() => {
         setIsOpen(false);
         onDelete();

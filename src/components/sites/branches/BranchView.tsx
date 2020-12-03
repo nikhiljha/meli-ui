@@ -48,7 +48,7 @@ function useSiteBranch(siteId: string, branchId: string) {
     setLoading(true);
     setError(undefined);
     axios
-      .get<Branch>(`${env.MELI_SERVER_URL}/api/v1/sites/${siteId}/branches/${branchId}`)
+      .get<Branch>(`${env.MELI_API_URL}/api/v1/sites/${siteId}/branches/${branchId}`)
       .then(({ data }) => data)
       .then(setBranch)
       .catch(setError)

@@ -9,7 +9,7 @@ import { axios } from './axios';
 import { useLoading } from '../commons/hooks/use-loading';
 
 export interface Env {
-  MELI_SERVER_URL: string;
+  MELI_API_URL: string;
 }
 
 const defaultEnv: Partial<Env> = {};

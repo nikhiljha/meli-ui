@@ -21,7 +21,7 @@ export function DeleteRelease({
   const deleteRelease = () => {
     setLoading(true);
     return axios
-      .delete(`${env.MELI_SERVER_URL}/api/v1/releases/${releaseId}`)
+      .delete(`${env.MELI_API_URL}/api/v1/releases/${releaseId}`)
       .then(() => {
         setIsOpen(false);
         onDelete();

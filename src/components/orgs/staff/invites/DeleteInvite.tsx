@@ -23,7 +23,7 @@ export function DeleteInvite({
   const deleteInvite = () => {
     setLoading(true);
     return axios
-      .delete(`${env.MELI_SERVER_URL}/api/v1/orgs/${currentOrg.org._id}/invites/${inviteId}`)
+      .delete(`${env.MELI_API_URL}/api/v1/orgs/${currentOrg.org._id}/invites/${inviteId}`)
       .then(() => {
         setIsOpen(false);
         onDelete();

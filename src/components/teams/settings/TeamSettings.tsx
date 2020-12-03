@@ -40,7 +40,7 @@ export function TeamSettings() {
   const onSubmit = (settings: Settings) => {
     setLoading(true);
     axios
-      .put<Settings>(`${env.MELI_SERVER_URL}/api/v1/teams/${teamId}`, settings)
+      .put<Settings>(`${env.MELI_API_URL}/api/v1/teams/${teamId}`, settings)
       .then(({ data }) => data)
       .then(setTeam)
       .then(() => toast('Team saved', {

@@ -20,7 +20,7 @@ export function ListItem({
   const select = () => {
     setLoading(true);
     return axios
-      .put(`${env.MELI_SERVER_URL}/api/v1/teams/${teamId}/members/${member._id}`, {
+      .put(`${env.MELI_API_URL}/api/v1/teams/${teamId}/members/${member._id}`, {
         member: member._id,
       })
       .then(() => {

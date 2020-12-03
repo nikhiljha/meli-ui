@@ -21,7 +21,7 @@ function ModalContent({ releaseId, onRenamed }: {
   const { handleSubmit, formState: { isDirty } } = methods;
 
   const onChange = formData => axios
-    .put<Release>(`${env.MELI_SERVER_URL}/api/v1/releases/${releaseId}`, formData)
+    .put<Release>(`${env.MELI_API_URL}/api/v1/releases/${releaseId}`, formData)
     .then(({ data }) => data)
     .then(onRenamed)
     .catch(err => {

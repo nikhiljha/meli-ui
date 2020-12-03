@@ -30,7 +30,7 @@ function AddTeamModal({ closeModal, onAdded }: {
   const { currentOrg } = useCurrentOrg();
 
   const onChange = formData => axios
-    .post<Team>(`${env.MELI_SERVER_URL}/api/v1/orgs/${currentOrg.org._id}/teams`, formData)
+    .post<Team>(`${env.MELI_API_URL}/api/v1/orgs/${currentOrg.org._id}/teams`, formData)
     .then(({ data }) => {
       if (onAdded) {
         onAdded(data);

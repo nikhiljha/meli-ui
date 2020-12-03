@@ -23,7 +23,7 @@ export function DeleteHook({
   const remove = () => {
     setLoading(true);
     return axios
-      .delete(`${env.MELI_SERVER_URL}/api/v1/${context}/hooks/${hookId}`)
+      .delete(`${env.MELI_API_URL}/api/v1/${context}/hooks/${hookId}`)
       .then(() => {
         setIsOpen(false);
         onDelete();

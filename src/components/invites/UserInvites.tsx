@@ -20,7 +20,7 @@ export function UserInvites() {
     if (token && env) {
       setLoading(true);
       axios
-        .post<UserInvite>(`${env.MELI_SERVER_URL}/api/v1/invites/${token}`, {
+        .post<UserInvite>(`${env.MELI_API_URL}/api/v1/invites/${token}`, {
           token,
         })
         .then(({ data }) => data)

@@ -29,7 +29,7 @@ function Modal({ closeModal, onAdded }: {
   const onSubmit = (form: Form) => {
     setLoading(true);
     axios
-      .post<UserOrg>(`${env.MELI_SERVER_URL}/api/v1/orgs`, form)
+      .post<UserOrg>(`${env.MELI_API_URL}/api/v1/orgs`, form)
       .then(({ data }) => {
         onAdded(data);
       })

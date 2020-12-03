@@ -22,7 +22,7 @@ function AddSiteModal({ teamId, closeModal }: { teamId; closeModal }) {
   const { handleSubmit, formState: { isDirty } } = methods;
 
   const onChange = formData => axios
-    .post<Site>(`${env.MELI_SERVER_URL}/api/v1/teams/${teamId}/sites`, formData)
+    .post<Site>(`${env.MELI_API_URL}/api/v1/teams/${teamId}/sites`, formData)
     .then(({ data }) => {
       routerHistory.push(`/sites/${data._id}`);
     })

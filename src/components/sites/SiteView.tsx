@@ -57,7 +57,7 @@ export function SiteView() {
     setLoading(true);
     setError(undefined);
     axios
-      .get<Site>(`${env.MELI_SERVER_URL}/api/v1/sites/${siteId}`)
+      .get<Site>(`${env.MELI_API_URL}/api/v1/sites/${siteId}`)
       .then(({ data }) => data)
       .then(setSite)
       .catch(setError)

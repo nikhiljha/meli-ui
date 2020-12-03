@@ -28,7 +28,7 @@ export function BranchList() {
   useEffect(() => {
     setLoading(true);
     setError(undefined);
-    axios.get<Branch[]>(`${env.MELI_SERVER_URL}/api/v1/sites/${siteId}/branches`)
+    axios.get<Branch[]>(`${env.MELI_API_URL}/api/v1/sites/${siteId}/branches`)
       .then(({ data }) => setItems(data))
       .catch(setError)
       .catch(err => toast(`Could not list branches: ${err}`, {

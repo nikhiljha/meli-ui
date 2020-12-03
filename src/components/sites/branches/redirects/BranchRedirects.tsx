@@ -27,7 +27,7 @@ function useBranchFiles(
     setLoading(true);
     setError(undefined);
     axios
-      .get<BranchRedirect[]>(`${env.MELI_SERVER_URL}/api/v1/sites/${siteId}/branches/${branchId}/redirects`)
+      .get<BranchRedirect[]>(`${env.MELI_API_URL}/api/v1/sites/${siteId}/branches/${branchId}/redirects`)
       .then(({ data }) => data)
       .then(setFiles)
       .catch(setError)
@@ -53,7 +53,7 @@ function useSetFiles(
   const updateFiles = (formData: BranchRedirectsFormData) => {
     setLoading(true);
     axios
-      .put<BranchRedirect[]>(`${env.MELI_SERVER_URL}/api/v1/sites/${siteId}/branches/${branchId}/redirects`, {
+      .put<BranchRedirect[]>(`${env.MELI_API_URL}/api/v1/sites/${siteId}/branches/${branchId}/redirects`, {
         redirects: formData.redirects || [],
       })
       .then(({ data }) => {

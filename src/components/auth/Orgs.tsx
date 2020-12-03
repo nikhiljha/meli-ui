@@ -61,7 +61,7 @@ export function Orgs() {
     setLoading(true);
     setError(undefined);
     axios
-      .get<UserOrg[]>(`${env.MELI_SERVER_URL}/api/v1/orgs`)
+      .get<UserOrg[]>(`${env.MELI_API_URL}/api/v1/orgs`)
       .then(({ data }) => data.sort(sortOrgs))
       .then(setItems)
       .catch(setError)

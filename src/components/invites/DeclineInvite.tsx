@@ -22,7 +22,7 @@ export function DeclineInvite({
   const accept = () => {
     setLoading(true);
     return axios
-      .put<UserOrg>(`${env.MELI_SERVER_URL}/api/v1/invites/${inviteId}/decline`, {
+      .put<UserOrg>(`${env.MELI_API_URL}/api/v1/invites/${inviteId}/decline`, {
         token,
       })
       .then(() => onIgnore())

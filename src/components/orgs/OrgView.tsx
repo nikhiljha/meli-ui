@@ -41,7 +41,7 @@ export function OrgView() {
     setLoading(true);
     setError(undefined);
     axios
-      .get<Org>(`${env.MELI_SERVER_URL}/api/v1/orgs/${currentOrgId}`)
+      .get<Org>(`${env.MELI_API_URL}/api/v1/orgs/${currentOrgId}`)
       .then(({ data }) => data)
       .then(setOrg)
       .catch(setError)

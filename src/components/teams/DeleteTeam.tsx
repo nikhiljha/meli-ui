@@ -21,7 +21,7 @@ export function DeleteTeam({
   const deleteTeam = () => {
     setLoading(true);
     return axios
-      .delete(`${env.MELI_SERVER_URL}/api/v1/teams/${id}`)
+      .delete(`${env.MELI_API_URL}/api/v1/teams/${id}`)
       .then(() => {
         setIsOpen(false);
         routerHistory.push('/');

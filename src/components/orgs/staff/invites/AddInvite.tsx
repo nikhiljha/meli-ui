@@ -34,7 +34,7 @@ function AddMemberModal({ closeModal, onAdded }: {
   const [loading, setLoading] = useLoading(false);
 
   const onChange = (member: InviteRequest) => axios
-    .post(`${env.MELI_SERVER_URL}/api/v1/orgs/${currentOrg.org._id}/invites`, member)
+    .post(`${env.MELI_API_URL}/api/v1/orgs/${currentOrg.org._id}/invites`, member)
     .then(({ data }) => {
       onAdded(data);
     })

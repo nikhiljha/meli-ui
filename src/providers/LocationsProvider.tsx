@@ -25,7 +25,7 @@ export function LocationsProvider(props) {
   useEffect(() => {
     setLoading(true);
     axios
-      .get<MeliLocation[]>(`${env.MELI_SERVER_URL}/api/v1/locations`)
+      .get<MeliLocation[]>(`${env.MELI_API_URL}/api/v1/locations`)
       .then(({ data }) => data)
       .then(setAvailableLocations)
       .catch(setError)
