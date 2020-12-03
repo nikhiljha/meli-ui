@@ -1,3 +1,10 @@
+# [1.0.0-next.3](https://github.com/getmeli/meli-ui/compare/v1.0.0-next.2...v1.0.0-next.3) (2020-12-03)
+
+
+### Features
+
+* force redirect path to start with a slash ([d3c0bbe](https://github.com/getmeli/meli-ui/commit/d3c0bbe9238c593f226f7bf78acb3364bcddae5c))
+
 # [1.0.0-next.2](https://github.com/getmeli/meli-ui/compare/v1.0.0-next.1...v1.0.0-next.2) (2020-12-02)
 
 
