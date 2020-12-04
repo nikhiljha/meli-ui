@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import classNames from 'classnames';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCog, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
+import { faCog, faDoorOpen } from '@fortawesome/free-solid-svg-icons';
 import { uniqueId } from 'lodash';
 import { useAuth } from '../../providers/AuthProvider';
 import styles from './UserInfo.module.scss';
@@ -10,6 +10,7 @@ import { DropdownLink } from '../../commons/components/dropdown/DropdownLink';
 import DropdownSeparator from '../../commons/components/dropdown/DropdownSeparator';
 import { Dropdown, dropdownToggle } from '../../commons/components/dropdown/Dropdown';
 import { UserIcon } from '../icons/UserIcon';
+import { OrgIcon } from '../icons/OrgIcon';
 
 function shortenNameWithoutCss(str: string) {
   const name = str || '?';
@@ -61,16 +62,23 @@ export function UserInfo({ className }: {
           User settings
         </DropdownLink>
         <DropdownSeparator />
-        {currentOrg && (
+        {currentOrg ? (
           <DropdownLink
-            icon={<FontAwesomeIcon icon={faSignOutAlt} fixedWidth />}
+            icon={<OrgIcon />}
             onClick={signOutOrg}
           >
-            Change org
+            Organizations
+          </DropdownLink>
+        ) : (
+          <DropdownLink
+            to="/orgs"
+            icon={<OrgIcon />}
+          >
+            Organizations
           </DropdownLink>
         )}
         <DropdownLink
-          icon={<FontAwesomeIcon icon={faSignOutAlt} fixedWidth />}
+          icon={<FontAwesomeIcon icon={faDoorOpen} fixedWidth />}
           onClick={signOut}
         >
           Sign out
