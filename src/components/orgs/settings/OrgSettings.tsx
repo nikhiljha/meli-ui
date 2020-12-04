@@ -10,7 +10,7 @@ import { InputError } from '../../../commons/components/forms/InputError';
 import { COLOR_PATTERN, required } from '../../../commons/components/forms/form-constants';
 import { useOrg } from '../OrgView';
 import { Org } from '../org';
-import { useLoading } from '../../../commons/hooks/use-loading';
+import { useMountedState } from '../../../commons/hooks/use-mounted-state';
 
 interface Settings {
   name: string;
@@ -34,7 +34,7 @@ export function OrgSettings() {
     }
   }, [org, reset]);
 
-  const [loading, setLoading] = useLoading(false);
+  const [loading, setLoading] = useMountedState(false);
 
   const onSubmit = (settings: Settings) => {
     setLoading(true);

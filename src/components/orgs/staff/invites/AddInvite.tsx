@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { toast } from 'react-toastify';
 import { Controller, useForm } from 'react-hook-form';
 import { Button } from '../../../../commons/components/Button';
@@ -13,7 +13,7 @@ import styles from './AddInvite.module.scss';
 import { OrgMember } from '../members/org-member';
 import { useCurrentOrg } from '../../../../providers/OrgProvider';
 import { Toggle } from '../../../../commons/components/forms/Toggle';
-import { useLoading } from '../../../../commons/hooks/use-loading';
+import { useMountedState } from '../../../../commons/hooks/use-mounted-state';
 
 interface InviteRequest {
   email: string;
@@ -31,7 +31,7 @@ function AddMemberModal({ closeModal, onAdded }: {
   } = useForm<InviteRequest>({
     mode: 'onChange',
   });
-  const [loading, setLoading] = useLoading(false);
+  const [loading, setLoading] = useMountedState(false);
 
   const onChange = (member: InviteRequest) => axios
     .post(`${env.MELI_API_URL}/api/v1/orgs/${currentOrg.org._id}/invites`, member)
@@ -108,7 +108,7 @@ export function AddInvite({
   className?;
   onAdded;
 }) {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useMountedState(false);
   const openModal = () => setIsOpen(true);
   const closeModal = () => setIsOpen(false);
 

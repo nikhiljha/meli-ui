@@ -11,7 +11,7 @@ import { axios } from '../../../providers/axios';
 import { useEnv } from '../../../providers/EnvProvider';
 import { ApiToken } from './api-token';
 import { ApiTokenForm, ApiTokenFormData } from './ApiTokenForm';
-import { useLoading } from '../../../commons/hooks/use-loading';
+import { useMountedState } from '../../../commons/hooks/use-mounted-state';
 import { Loader } from '../../../commons/components/Loader';
 import { AlertError } from '../../../commons/components/AlertError';
 import { ButtonIcon } from '../../../commons/components/ButtonIcon';
@@ -30,7 +30,7 @@ export function ApiTokenView() {
   const { url } = useRouteMatch();
 
   const env = useEnv();
-  const [loading, setLoading] = useLoading(true);
+  const [loading, setLoading] = useMountedState(true);
   const [error, setError] = useState();
   const [apiToken, setApiToken] = useState<ApiToken>();
 

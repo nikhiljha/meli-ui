@@ -15,7 +15,7 @@ import { ReleaseIcon } from '../../icons/ReleaseIcon';
 import { CardModal } from '../../../commons/components/modals/CardModal';
 import { ReleaseView } from './ReleaseView';
 import { SearchInput } from './SearchInput';
-import { useLoading } from '../../../commons/hooks/use-loading';
+import { useMountedState } from '../../../commons/hooks/use-mounted-state';
 import { useBranch } from '../branches/BranchView';
 
 function UploadReleaseSnippet({ siteId, className }: { siteId: string; className? }) {
@@ -31,7 +31,7 @@ function UploadReleaseSnippet({ siteId, className }: { siteId: string; className
 }
 
 function HowToUpload({ children }: { children: any }) {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useMountedState(false);
   const openModal = () => setIsOpen(true);
   const closeModal = () => setIsOpen(false);
 
@@ -59,7 +59,7 @@ export function Releases() {
   const { siteId } = useParams();
   const branchContext = useBranch();
   const [releaseAdded] = useReleaseUploaded(siteId);
-  const [loading, setLoading] = useLoading(true);
+  const [loading, setLoading] = useMountedState(true);
   const [error, setError] = useState();
   const [items, setItems] = useState<Release[]>([]);
   const itemsRef = useRef<Release[]>([]);

@@ -10,7 +10,7 @@ import { SiteNameInput } from './settings/SiteNameInput';
 import { Button } from '../../commons/components/Button';
 import { CardModal } from '../../commons/components/modals/CardModal';
 import { Site } from './site';
-import { useLoading } from '../../commons/hooks/use-loading';
+import { useMountedState } from '../../commons/hooks/use-mounted-state';
 import { useCurrentOrg } from '../../providers/OrgProvider';
 
 function AddSiteModal({ teamId, closeModal }: { teamId; closeModal }) {
@@ -18,7 +18,7 @@ function AddSiteModal({ teamId, closeModal }: { teamId; closeModal }) {
   const methods = useForm({
     mode: 'onChange',
   });
-  const [loading, setLoading] = useLoading(false);
+  const [loading, setLoading] = useMountedState(false);
   const { handleSubmit, formState: { isDirty } } = methods;
 
   const onChange = formData => axios
@@ -76,7 +76,7 @@ export function AddSite({
   tooltip?: boolean;
 }) {
   const [uid] = useState(uniqueId());
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useMountedState(false);
   const openModal = () => setIsOpen(true);
   const closeModal = () => setIsOpen(false);
   const { currentOrg } = useCurrentOrg();

@@ -12,7 +12,7 @@ import { Site } from '../sites/site';
 import styles from './Sites.module.scss';
 import { useSiteAdded, useSiteDeleted } from '../sites/live-site';
 import { Bubble } from '../../commons/components/Bubble';
-import { useLoading } from '../../commons/hooks/use-loading';
+import { useMountedState } from '../../commons/hooks/use-mounted-state';
 
 function sortSites(a: Site, b: Site) {
   return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
@@ -20,7 +20,7 @@ function sortSites(a: Site, b: Site) {
 
 export function Sites({ teamId, className }: { teamId; className? }) {
   const env = useEnv();
-  const [loading, setLoading] = useLoading(true);
+  const [loading, setLoading] = useMountedState(true);
   const [error, setError] = useState();
   const [sites, setItems] = useState<Site[]>();
   const sitesRef = useRef<Site[]>([]);

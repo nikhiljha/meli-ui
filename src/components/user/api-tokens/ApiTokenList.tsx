@@ -10,7 +10,7 @@ import { ApiToken } from './api-token';
 import { axios } from '../../../providers/axios';
 import styles from './ApiTokenList.module.scss';
 import { TokenIcon } from '../../icons/TokenIcon';
-import { useLoading } from '../../../commons/hooks/use-loading';
+import { useMountedState } from '../../../commons/hooks/use-mounted-state';
 import { ApiTokenActivationPeriod } from './ApiTokenActivationPeriod';
 
 function sortTokens(a: ApiToken, b: ApiToken): number {
@@ -21,7 +21,7 @@ export function ApiTokenList() {
   const { url } = useRouteMatch();
 
   const env = useEnv();
-  const [loading, setLoading] = useLoading(true);
+  const [loading, setLoading] = useMountedState(true);
   const [error, setError] = useState();
   const [items, setItems] = useState<ApiToken[]>();
 

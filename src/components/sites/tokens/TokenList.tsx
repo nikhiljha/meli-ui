@@ -12,7 +12,7 @@ import { AddToken } from './AddToken';
 import { TokenView } from './TokenView';
 import styles from './TokenList.module.scss';
 import { TokenIcon } from '../../icons/TokenIcon';
-import { useLoading } from '../../../commons/hooks/use-loading';
+import { useMountedState } from '../../../commons/hooks/use-mounted-state';
 
 function sortTokens(a: Token, b: Token): number {
   return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
@@ -21,7 +21,7 @@ function sortTokens(a: Token, b: Token): number {
 export function TokenList() {
   const env = useEnv();
   const { siteId } = useParams();
-  const [loading, setLoading] = useLoading(true);
+  const [loading, setLoading] = useMountedState(true);
   const [error, setError] = useState();
   const [items, setItems] = useState<Token[]>();
 

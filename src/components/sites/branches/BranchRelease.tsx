@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { uniqueId } from 'lodash';
 import { useEnv } from '../../../providers/EnvProvider';
-import { useLoading } from '../../../commons/hooks/use-loading';
+import { useMountedState } from '../../../commons/hooks/use-mounted-state';
 import { Release } from '../releases/release';
 import { axios } from '../../../providers/axios';
 import { Loader } from '../../../commons/components/Loader';
@@ -10,7 +10,7 @@ import { Tooltip, tooltipToggle } from '../../../commons/components/Tooltip';
 
 function useRelease(releaseId: string) {
   const env = useEnv();
-  const [loading, setLoading] = useLoading(!!releaseId);
+  const [loading, setLoading] = useMountedState(!!releaseId);
   const [error, setError] = useState();
   const [release, setRelease] = useState<Release>();
 

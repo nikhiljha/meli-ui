@@ -10,7 +10,7 @@ import { axios } from '../../providers/axios';
 import { useEnv } from '../../providers/EnvProvider';
 import styles from './SignIn.module.scss';
 import { ErrorIcon } from '../../commons/components/ErrorIcon';
-import { useLoading } from '../../commons/hooks/use-loading';
+import { useMountedState } from '../../commons/hooks/use-mounted-state';
 
 function SignInWithGitea() {
   const env = useEnv();
@@ -89,7 +89,7 @@ function SignInWithGoogle() {
 
 export function SignIn() {
   const env = useEnv();
-  const [loading, setLoading] = useLoading(true);
+  const [loading, setLoading] = useMountedState(true);
   const [error, setError] = useState();
   const [signInMethods, setSignInMethods] = useState<string[]>();
 

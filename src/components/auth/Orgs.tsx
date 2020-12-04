@@ -10,13 +10,13 @@ import styles from './Orgs.module.scss';
 import { useCurrentOrg } from '../../providers/OrgProvider';
 import { UserOrg } from './user-org';
 import { AddOrg } from '../orgs/AddOrg';
-import { useLoading } from '../../commons/hooks/use-loading';
+import { useMountedState } from '../../commons/hooks/use-mounted-state';
 
 function OrgItem({ item }: {
   item: UserOrg;
 }) {
   const { changeCurrentOrg } = useCurrentOrg();
-  const [loading, setLoading] = useLoading(false);
+  const [loading, setLoading] = useMountedState(false);
 
   const selectOrg = () => {
     setLoading(true);
@@ -53,7 +53,7 @@ function sortOrgs(a: UserOrg, b: UserOrg): number {
 
 export function Orgs() {
   const env = useEnv();
-  const [loading, setLoading] = useLoading(true);
+  const [loading, setLoading] = useMountedState(true);
   const [error, setError] = useState();
   const [items, setItems] = useState<UserOrg[]>();
 

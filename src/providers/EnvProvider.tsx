@@ -6,7 +6,7 @@ import { FullPageLoader } from '../commons/components/FullPageLoader';
 import { FullPageCentered } from '../commons/components/FullPageCentered';
 import { AlertError } from '../commons/components/AlertError';
 import { axios } from './axios';
-import { useLoading } from '../commons/hooks/use-loading';
+import { useMountedState } from '../commons/hooks/use-mounted-state';
 
 export interface Env {
   MELI_API_URL: string;
@@ -19,7 +19,7 @@ export const EnvContext = createContext<Env>(undefined);
 export const useEnv = () => useContext(EnvContext);
 
 export function EnvProvider(props) {
-  const [loading, setLoading] = useLoading(true);
+  const [loading, setLoading] = useMountedState(true);
   const [env, setEnv] = useState<Env>();
   const [error, setError] = useState();
 

@@ -9,7 +9,7 @@ import { Email } from './configs/Email';
 import { Mattermost } from './configs/Mattermost';
 import { Slack } from './configs/Slack';
 import { Hook, HookType } from '../hook';
-import { useLoading } from '../../../commons/hooks/use-loading';
+import { useMountedState } from '../../../commons/hooks/use-mounted-state';
 import { Button } from '../../../commons/components/Button';
 import { Web } from './configs/Web';
 import { HookEvents } from './HookEvents';
@@ -56,7 +56,7 @@ export function HookForm({
 
   const type = watch('type');
 
-  const [loading, setLoading] = useLoading(false);
+  const [loading, setLoading] = useMountedState(false);
 
   const onSubmit = (data: Hook) => {
     setLoading(true);

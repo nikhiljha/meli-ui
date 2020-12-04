@@ -8,7 +8,7 @@ import { useEnv } from '../../../../providers/EnvProvider';
 import { SearchInput } from '../../../sites/releases/SearchInput';
 import { useOrg } from '../../OrgView';
 import { getMembers, OrgMembersSearchQuery } from './get-members';
-import { useLoading } from '../../../../commons/hooks/use-loading';
+import { useMountedState } from '../../../../commons/hooks/use-mounted-state';
 import { MemberView } from './MemberView';
 import { OrgMember } from './org-member';
 import { OrgMemberIcon } from '../../../icons/OrgMemberIcon';
@@ -16,7 +16,7 @@ import { Loader } from '../../../../commons/components/Loader';
 
 export function Members() {
   const env = useEnv();
-  const [loading, setLoading] = useLoading(true);
+  const [loading, setLoading] = useMountedState(true);
   const [error, setError] = useState();
   const [items, setItems] = useState<OrgMember[]>([]);
   const { org } = useOrg();

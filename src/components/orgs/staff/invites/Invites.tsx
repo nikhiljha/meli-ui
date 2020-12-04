@@ -11,7 +11,7 @@ import { axios } from '../../../../providers/axios';
 import { InviteView } from './InviteView';
 import { AddInvite } from './AddInvite';
 import { useCurrentOrg } from '../../../../providers/OrgProvider';
-import { useLoading } from '../../../../commons/hooks/use-loading';
+import { useMountedState } from '../../../../commons/hooks/use-mounted-state';
 import { ButtonIcon } from '../../../../commons/components/ButtonIcon';
 
 function sortInvites(a: Invite, b: Invite): number {
@@ -20,7 +20,7 @@ function sortInvites(a: Invite, b: Invite): number {
 
 export function Invites() {
   const env = useEnv();
-  const [loading, setLoading] = useLoading(true);
+  const [loading, setLoading] = useMountedState(true);
   const [error, setError] = useState();
   const [items, setItems] = useState<Invite[]>();
   const { currentOrg } = useCurrentOrg();

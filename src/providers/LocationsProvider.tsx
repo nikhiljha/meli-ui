@@ -5,7 +5,7 @@ import { axios } from './axios';
 import { useEnv } from './EnvProvider';
 import { Loader } from '../commons/components/Loader';
 import { AlertError } from '../commons/components/AlertError';
-import { useLoading } from '../commons/hooks/use-loading';
+import { useMountedState } from '../commons/hooks/use-mounted-state';
 
 interface MeliLocation {
   id: string;
@@ -18,7 +18,7 @@ export const useLocations = () => useContext(Context);
 
 export function LocationsProvider(props) {
   const env = useEnv();
-  const [loading, setLoading] = useLoading(true);
+  const [loading, setLoading] = useMountedState(true);
   const [error, setError] = useState();
   const [availableLocations, setAvailableLocations] = useState<MeliLocation[]>();
 

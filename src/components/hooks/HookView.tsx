@@ -19,7 +19,7 @@ import { DropdownLink } from '../../commons/components/dropdown/DropdownLink';
 import { SubHeader } from '../SubHeader';
 import { axios } from '../../providers/axios';
 import { AlertError } from '../../commons/components/AlertError';
-import { useLoading } from '../../commons/hooks/use-loading';
+import { useMountedState } from '../../commons/hooks/use-mounted-state';
 import { useHookContext } from './HookProvider';
 import { HookForm } from './form/HookForm';
 import { routeUp } from '../../commons/utils/route-up';
@@ -34,7 +34,7 @@ export function HookView() {
   const { context } = useHookContext();
 
   const env = useEnv();
-  const [loading, setLoading] = useLoading(true);
+  const [loading, setLoading] = useMountedState(true);
   const [error, setError] = useState();
   const [hook, setHook] = useState<Hook>();
 

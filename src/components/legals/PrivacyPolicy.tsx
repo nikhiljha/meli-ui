@@ -4,10 +4,10 @@ import md from './privacy-policy.md';
 import { axios } from '../../providers/axios';
 import { Loader } from '../../commons/components/Loader';
 import { AlertError } from '../../commons/components/AlertError';
-import { useLoading } from '../../commons/hooks/use-loading';
+import { useMountedState } from '../../commons/hooks/use-mounted-state';
 
 export default function PrivacyPolicy() {
-  const [loading, setLoading] = useLoading(true);
+  const [loading, setLoading] = useMountedState(true);
   const [error, setError] = useState();
   const [content, setContent] = useState();
 

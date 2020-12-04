@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { toast } from 'react-toastify';
 import { useForm } from 'react-hook-form';
 import { Button } from '../../../commons/components/Button';
@@ -9,7 +9,7 @@ import { Token } from './token';
 import { maxLength, required } from '../../../commons/components/forms/form-constants';
 import { InputError } from '../../../commons/components/forms/InputError';
 import styles from './AddToken.module.scss';
-import { useLoading } from '../../../commons/hooks/use-loading';
+import { useMountedState } from '../../../commons/hooks/use-mounted-state';
 
 function AddTokenModal({
   closeModal, siteId, onAdded,
@@ -24,7 +24,7 @@ function AddTokenModal({
   } = useForm({
     mode: 'onChange',
   });
-  const [loading, setLoading] = useLoading(false);
+  const [loading, setLoading] = useMountedState(false);
 
   const onChange = token => axios
     .post(`${env.MELI_API_URL}/api/v1/sites/${siteId}/tokens`, token)
@@ -83,7 +83,7 @@ export function AddToken({
   siteId;
   onAdded;
 }) {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useMountedState(false);
   const openModal = () => setIsOpen(true);
   const closeModal = () => setIsOpen(false);
 

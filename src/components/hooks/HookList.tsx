@@ -7,7 +7,7 @@ import { EmptyList } from '../../commons/components/EmptyList';
 import { axios } from '../../providers/axios';
 import { Loader } from '../../commons/components/Loader';
 import { AlertError } from '../../commons/components/AlertError';
-import { useLoading } from '../../commons/hooks/use-loading';
+import { useMountedState } from '../../commons/hooks/use-mounted-state';
 import { useEnv } from '../../providers/EnvProvider';
 import { useHookContext } from './HookProvider';
 import { Hook } from './hook';
@@ -22,7 +22,7 @@ export function HookList() {
   const { context } = useHookContext();
 
   const env = useEnv();
-  const [loading, setLoading] = useLoading(true);
+  const [loading, setLoading] = useMountedState(true);
   const [error, setError] = useState();
   const [hooks, setHooks] = useState<Hook[]>();
 

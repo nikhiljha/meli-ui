@@ -6,13 +6,13 @@ import { Loader } from '../../commons/components/Loader';
 import { AlertError } from '../../commons/components/AlertError';
 import { UserInvite } from './user-invite';
 import { UserInviteView } from './UserInviteView';
-import { useLoading } from '../../commons/hooks/use-loading';
+import { useMountedState } from '../../commons/hooks/use-mounted-state';
 
 export function UserInvites() {
   const { token } = queryParams();
 
   const env = useEnv();
-  const [loading, setLoading] = useLoading(!!token);
+  const [loading, setLoading] = useMountedState(!!token);
   const [error, setError] = useState();
   const [invite, setInvite] = useState<UserInvite>();
 

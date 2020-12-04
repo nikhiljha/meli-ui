@@ -19,7 +19,7 @@ import { ButtonIcon } from '../../../commons/components/ButtonIcon';
 import { useSite } from '../SiteView';
 import { Tooltip, tooltipToggle } from '../../../commons/components/Tooltip';
 import { useEnv } from '../../../providers/EnvProvider';
-import { useLoading } from '../../../commons/hooks/use-loading';
+import { useMountedState } from '../../../commons/hooks/use-mounted-state';
 import { axios } from '../../../providers/axios';
 import { Loader } from '../../../commons/components/Loader';
 import { AlertError } from '../../../commons/components/AlertError';
@@ -40,7 +40,7 @@ import { BranchIcon } from '../../icons/BranchIcon';
 
 function useSiteBranch(siteId: string, branchId: string) {
   const env = useEnv();
-  const [loading, setLoading] = useLoading(true);
+  const [loading, setLoading] = useMountedState(true);
   const [error, setError] = useState();
   const [branch, setBranch] = useState<Branch>();
 

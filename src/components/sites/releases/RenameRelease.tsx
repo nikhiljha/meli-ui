@@ -7,7 +7,7 @@ import { CardModal } from '../../../commons/components/modals/CardModal';
 import { useEnv } from '../../../providers/EnvProvider';
 import { Release } from './release';
 import { ReleaseNameInput } from './ReleaseNameInput';
-import { useLoading } from '../../../commons/hooks/use-loading';
+import { useMountedState } from '../../../commons/hooks/use-mounted-state';
 
 function ModalContent({ releaseId, onRenamed }: {
   releaseId: string;
@@ -17,7 +17,7 @@ function ModalContent({ releaseId, onRenamed }: {
   const methods = useForm({
     mode: 'onChange',
   });
-  const [loading, setLoading] = useLoading(false);
+  const [loading, setLoading] = useMountedState(false);
   const { handleSubmit, formState: { isDirty } } = methods;
 
   const onChange = formData => axios
@@ -70,7 +70,7 @@ export function RenameRelease({
   releaseId: string;
   onRenamed: (release: Release) => void;
 }) {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useMountedState(false);
   const openModal = () => setIsOpen(true);
   const closeModal = () => setIsOpen(false);
 

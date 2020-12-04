@@ -13,7 +13,7 @@ import { AlertError } from '../../../../commons/components/AlertError';
 import styles from './AddMember.module.scss';
 import { ListItem } from './ListItem';
 import { useCurrentOrg } from '../../../../providers/OrgProvider';
-import { useLoading } from '../../../../commons/hooks/use-loading';
+import { useMountedState } from '../../../../commons/hooks/use-mounted-state';
 
 export function AddMember({
   teamId, className, children, onAdded,
@@ -23,11 +23,11 @@ export function AddMember({
   className?: string;
   onAdded: (member: OrgMember) => void;
 }) {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useMountedState(false);
   const [initialLoad, setInitialLoad] = useState(true);
   const env = useEnv();
   const { currentOrg } = useCurrentOrg();
-  const [loading, setLoading] = useLoading(false);
+  const [loading, setLoading] = useMountedState(false);
   const [error, setError] = useState();
   const [query, setQuery] = useState<OrgMembersSearchQuery>({
     search: '', page: 0, size: 10,

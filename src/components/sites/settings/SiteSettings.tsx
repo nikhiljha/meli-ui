@@ -15,7 +15,7 @@ import { useSite } from '../SiteView';
 import { axios } from '../../../providers/axios';
 import { COLOR_PATTERN, required } from '../../../commons/components/forms/form-constants';
 import { InputError } from '../../../commons/components/forms/InputError';
-import { useLoading } from '../../../commons/hooks/use-loading';
+import { useMountedState } from '../../../commons/hooks/use-mounted-state';
 import { CopyToClipboard } from '../../../commons/components/CopyToClipboard';
 import { SelectMainBranch } from './SelectMainBranch';
 
@@ -47,7 +47,7 @@ export function SiteSettings() {
     }
   }, [site, reset]);
 
-  const [loading, setLoading] = useLoading(false);
+  const [loading, setLoading] = useMountedState(false);
 
   const onSubmit = (updatedSite: Settings) => {
     setLoading(true);

@@ -16,12 +16,12 @@ import { LoadMore } from '../../commons/components/LoadMore';
 import { AddSite } from './AddSite';
 import { useSiteAdded } from './live-site';
 import { SiteIcon } from '../icons/SiteIcon';
-import { useLoading } from '../../commons/hooks/use-loading';
+import { useMountedState } from '../../commons/hooks/use-mounted-state';
 
 export function SiteList() {
   const { teamId } = useParams();
   const env = useEnv();
-  const [loading, setLoading] = useLoading(true);
+  const [loading, setLoading] = useMountedState(true);
   const [error, setError] = useState();
   const [items, setItems] = useState<Site[]>();
   const itemsRef = useRef<Site[]>([]);

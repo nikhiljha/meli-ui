@@ -18,7 +18,7 @@ import { useCurrentOrg } from '../../providers/OrgProvider';
 import { Loader } from '../../commons/components/Loader';
 import { AlertError } from '../../commons/components/AlertError';
 import { Staff } from './staff/Staff';
-import { useLoading } from '../../commons/hooks/use-loading';
+import { useMountedState } from '../../commons/hooks/use-mounted-state';
 
 interface OrgContext {
   org: Org;
@@ -35,7 +35,7 @@ export function OrgView() {
   const [org, setOrg] = useState<Org>();
 
   const env = useEnv();
-  const [loading, setLoading] = useLoading(true);
+  const [loading, setLoading] = useMountedState(true);
   const [error, setError] = useState();
   useEffect(() => {
     setLoading(true);

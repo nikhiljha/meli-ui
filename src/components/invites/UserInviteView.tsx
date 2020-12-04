@@ -10,14 +10,14 @@ import { Loader } from '../../commons/components/Loader';
 import { AlertError } from '../../commons/components/AlertError';
 import { Bubble } from '../../commons/components/Bubble';
 import styles from './UserInviteView.module.scss';
-import { useLoading } from '../../commons/hooks/use-loading';
+import { useMountedState } from '../../commons/hooks/use-mounted-state';
 
 export function UserInviteView({ invite, token }: {
   invite: UserInvite;
   token: string;
 }) {
   const { changeCurrentOrg } = useCurrentOrg();
-  const [loading, setLoading] = useLoading(false);
+  const [loading, setLoading] = useMountedState(false);
   const [error, setError] = useState();
 
   const onIgnore = () => {

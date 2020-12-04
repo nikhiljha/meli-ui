@@ -7,7 +7,7 @@ import { CardModal } from '../../../commons/components/modals/CardModal';
 import { useEnv } from '../../../providers/EnvProvider';
 import { Branch } from './branch';
 import { BranchNameInput } from './BranchNameInput';
-import { useLoading } from '../../../commons/hooks/use-loading';
+import { useMountedState } from '../../../commons/hooks/use-mounted-state';
 
 function ModalContent({
   siteId, branchId, onRenamed,
@@ -20,7 +20,7 @@ function ModalContent({
   const methods = useForm({
     mode: 'onChange',
   });
-  const [loading, setLoading] = useLoading(false);
+  const [loading, setLoading] = useMountedState(false);
   const { handleSubmit, formState: { isDirty } } = methods;
 
   const onSubmit = formData => {
@@ -72,7 +72,7 @@ export function RenameBranch({
   branchId: string;
   onRenamed: (branch: Branch) => void;
 }) {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useMountedState(false);
   const openModal = () => setIsOpen(true);
   const closeModal = () => setIsOpen(false);
 

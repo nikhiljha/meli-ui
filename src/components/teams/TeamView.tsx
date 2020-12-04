@@ -27,7 +27,7 @@ import { TeamMemberIcon } from '../icons/TeamMemberIcon';
 import { SiteList } from '../sites/SiteList';
 import { Members } from './members/Members';
 import { TeamSettings } from './settings/TeamSettings';
-import { useLoading } from '../../commons/hooks/use-loading';
+import { useMountedState } from '../../commons/hooks/use-mounted-state';
 
 interface TeamContext {
   team: Team;
@@ -43,7 +43,7 @@ export function TeamView() {
   const [uid] = useState(uniqueId());
 
   const env = useEnv();
-  const [loading, setLoading] = useLoading(true);
+  const [loading, setLoading] = useMountedState(true);
   const [error, setError] = useState();
   const [team, setTeam] = useState<Team>();
 

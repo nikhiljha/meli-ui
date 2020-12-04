@@ -5,7 +5,7 @@ import { Button } from '../../commons/components/Button';
 import { axios } from '../../providers/axios';
 import { useEnv } from '../../providers/EnvProvider';
 import { UserOrg } from '../auth/user-org';
-import { useLoading } from '../../commons/hooks/use-loading';
+import { useMountedState } from '../../commons/hooks/use-mounted-state';
 
 export function DeclineInvite({
   inviteId, className, onIgnore, token, disabled,
@@ -17,7 +17,7 @@ export function DeclineInvite({
   className?: string;
 }) {
   const env = useEnv();
-  const [loading, setLoading] = useLoading(false);
+  const [loading, setLoading] = useMountedState(false);
 
   const accept = () => {
     setLoading(true);

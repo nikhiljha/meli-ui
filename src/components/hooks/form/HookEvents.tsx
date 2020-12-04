@@ -3,7 +3,7 @@ import { toast } from 'react-toastify';
 import { Controller, useFormContext } from 'react-hook-form';
 import { useHookContext } from '../HookProvider';
 import { useEnv } from '../../../providers/EnvProvider';
-import { useLoading } from '../../../commons/hooks/use-loading';
+import { useMountedState } from '../../../commons/hooks/use-mounted-state';
 import { axios } from '../../../providers/axios';
 import { Loader } from '../../../commons/components/Loader';
 import { AlertError } from '../../../commons/components/AlertError';
@@ -14,7 +14,7 @@ export function HookEvents() {
   const { control } = useFormContext();
 
   const env = useEnv();
-  const [loading, setLoading] = useLoading(true);
+  const [loading, setLoading] = useMountedState(true);
   const [error, setError] = useState();
   const [events, setEvents] = useState<string[]>();
 

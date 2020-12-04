@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { toast } from 'react-toastify';
 import { axios } from '../../providers/axios';
 import { useEnv } from '../../providers/EnvProvider';
 import { routerHistory } from '../../providers/history';
 import { Button } from '../../commons/components/Button';
 import { CardModal } from '../../commons/components/modals/CardModal';
-import { useLoading } from '../../commons/hooks/use-loading';
+import { useMountedState } from '../../commons/hooks/use-mounted-state';
 
 export function DeleteSite({
   id, teamId, className, children,
@@ -15,8 +15,8 @@ export function DeleteSite({
   className?: string;
   children: any;
 }) {
-  const [isOpen, setIsOpen] = useState(false);
-  const [loading, setLoading] = useLoading(false);
+  const [isOpen, setIsOpen] = useMountedState(false);
+  const [loading, setLoading] = useMountedState(false);
   const env = useEnv();
 
   const deleteSite = () => {

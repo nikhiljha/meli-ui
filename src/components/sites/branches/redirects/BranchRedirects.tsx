@@ -5,7 +5,7 @@ import {
 import { toast } from 'react-toastify';
 import { useParams } from 'react-router-dom';
 import { useEnv } from '../../../../providers/EnvProvider';
-import { useLoading } from '../../../../commons/hooks/use-loading';
+import { useMountedState } from '../../../../commons/hooks/use-mounted-state';
 import { axios } from '../../../../providers/axios';
 import { Loader } from '../../../../commons/components/Loader';
 import { AlertError } from '../../../../commons/components/AlertError';
@@ -19,7 +19,7 @@ function useBranchFiles(
   branchId: string,
 ) {
   const env = useEnv();
-  const [loading, setLoading] = useLoading();
+  const [loading, setLoading] = useMountedState(false);
   const [error, setError] = useState();
   const [redirects, setFiles] = useState<BranchRedirect[]>();
 
@@ -47,7 +47,7 @@ function useSetFiles(
   branchId: string,
   setFiles: (redirects: BranchRedirect[]) => void,
 ) {
-  const [loading, setLoading] = useLoading();
+  const [loading, setLoading] = useMountedState(false);
   const env = useEnv();
 
   const updateFiles = (formData: BranchRedirectsFormData) => {

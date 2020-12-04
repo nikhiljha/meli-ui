@@ -10,7 +10,7 @@ import { useTeam } from '../TeamView';
 import { axios } from '../../../providers/axios';
 import { InputError } from '../../../commons/components/forms/InputError';
 import { COLOR_PATTERN, required } from '../../../commons/components/forms/form-constants';
-import { useLoading } from '../../../commons/hooks/use-loading';
+import { useMountedState } from '../../../commons/hooks/use-mounted-state';
 
 interface Settings {
   name: string;
@@ -35,7 +35,7 @@ export function TeamSettings() {
     }
   }, [team, reset]);
 
-  const [loading, setLoading] = useLoading(false);
+  const [loading, setLoading] = useMountedState(false);
 
   const onSubmit = (settings: Settings) => {
     setLoading(true);

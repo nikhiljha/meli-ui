@@ -18,12 +18,12 @@ import { Bubble } from '../../commons/components/Bubble';
 import { FromNow } from '../../commons/components/FromNow';
 import { AddTeam } from './AddTeam';
 import { useCurrentOrg } from '../../providers/OrgProvider';
-import { useLoading } from '../../commons/hooks/use-loading';
+import { useMountedState } from '../../commons/hooks/use-mounted-state';
 
 export function TeamList() {
   const env = useEnv();
   const { currentOrg } = useCurrentOrg();
-  const [loading, setLoading] = useLoading(true);
+  const [loading, setLoading] = useMountedState(true);
   const [error, setError] = useState();
   const [items, setItems] = useState<Team[]>();
   const itemsRef = useRef<Team[]>([]);

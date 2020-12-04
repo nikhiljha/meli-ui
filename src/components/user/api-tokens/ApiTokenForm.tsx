@@ -2,7 +2,7 @@ import { Controller, useForm } from 'react-hook-form';
 import React, { useEffect, useState } from 'react';
 import { DateRangePicker, FocusedInputShape } from 'react-dates';
 import moment from 'moment';
-import { useLoading } from '../../../commons/hooks/use-loading';
+import { useMountedState } from '../../../commons/hooks/use-mounted-state';
 import { maxLength, required } from '../../../commons/components/forms/form-constants';
 import { InputError } from '../../../commons/components/forms/InputError';
 import { Button } from '../../../commons/components/Button';
@@ -58,7 +58,7 @@ export function ApiTokenForm({
   } = useForm<ApiTokenFormData>({
     mode: 'onChange',
   });
-  const [loading, setLoading] = useLoading(false);
+  const [loading, setLoading] = useMountedState(false);
 
   const onSubmit = (data: ApiTokenFormData) => {
     setLoading(true);

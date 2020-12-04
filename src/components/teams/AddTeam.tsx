@@ -15,7 +15,7 @@ import { KeyboardShortcut } from '../../commons/components/KeyboardShortcut';
 import { isMac, isWindows } from '../../commons/utils/os';
 import { Team } from './team';
 import { useCurrentOrg } from '../../providers/OrgProvider';
-import { useLoading } from '../../commons/hooks/use-loading';
+import { useMountedState } from '../../commons/hooks/use-mounted-state';
 
 function AddTeamModal({ closeModal, onAdded }: {
   closeModal;
@@ -25,7 +25,7 @@ function AddTeamModal({ closeModal, onAdded }: {
   const methods = useForm({
     mode: 'onChange',
   });
-  const [loading, setLoading] = useLoading(false);
+  const [loading, setLoading] = useMountedState(false);
   const { handleSubmit, formState: { isDirty } } = methods;
   const { currentOrg } = useCurrentOrg();
 
@@ -87,7 +87,7 @@ export function AddTeam({
   onAdded?: (team: Team) => void;
 }) {
   const [uid] = useState(uniqueId());
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useMountedState(false);
   const openModal = () => setIsOpen(true);
   const closeModal = () => setIsOpen(false);
   const { currentOrg: { isAdminOrOwner } } = useCurrentOrg();

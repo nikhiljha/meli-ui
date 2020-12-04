@@ -6,7 +6,7 @@ import { toast } from 'react-toastify';
 import { useHookContext } from '../HookProvider';
 import { PaginationData } from '../../../commons/components/Pagination';
 import { LoadMore } from '../../../commons/components/LoadMore';
-import { useLoading } from '../../../commons/hooks/use-loading';
+import { useMountedState } from '../../../commons/hooks/use-mounted-state';
 import { useEnv } from '../../../providers/EnvProvider';
 import { axios } from '../../../providers/axios';
 import { HookDeliveryView } from './HookDeliveryView';
@@ -20,7 +20,7 @@ export function HookDeliveries() {
   const { context } = useHookContext();
   const { hookId } = useParams();
   const env = useEnv();
-  const [loading, setLoading] = useLoading(true);
+  const [loading, setLoading] = useMountedState(true);
   const [error, setError] = useState();
   const [deliveries, setDeliveries] = useState<HookDelivery[]>();
   const itemsRef = useRef<HookDelivery[]>([]);

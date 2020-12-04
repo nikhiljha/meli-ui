@@ -14,14 +14,14 @@ import { axios } from '../../../../providers/axios';
 import { useCurrentOrg } from '../../../../providers/OrgProvider';
 import { Loader } from '../../../../commons/components/Loader';
 import { DropdownLink } from '../../../../commons/components/dropdown/DropdownLink';
-import { useLoading } from '../../../../commons/hooks/use-loading';
+import { useMountedState } from '../../../../commons/hooks/use-mounted-state';
 
 function AdminToggle({ member, setMember }: {
   member: OrgMember;
   setMember: (member: OrgMember) => void;
 }) {
   const env = useEnv();
-  const [loading, setLoading] = useLoading(false);
+  const [loading, setLoading] = useMountedState(false);
 
   const toggle = () => {
     setLoading(true);

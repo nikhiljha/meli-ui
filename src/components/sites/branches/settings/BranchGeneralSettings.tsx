@@ -5,7 +5,7 @@ import { toast } from 'react-toastify';
 import { Site, SiteDomain } from '../../site';
 import { useSite } from '../../SiteView';
 import { axios } from '../../../../providers/axios';
-import { useLoading } from '../../../../commons/hooks/use-loading';
+import { useMountedState } from '../../../../commons/hooks/use-mounted-state';
 import { useEnv } from '../../../../providers/EnvProvider';
 
 interface Settings {
@@ -30,7 +30,7 @@ export function BranchGeneralSettings() {
     }
   }, [site, reset]);
 
-  const [, setLoading] = useLoading(false);
+  const [, setLoading] = useMountedState(false);
 
   const onSubmit = (updatedSite: Settings) => {
     setLoading(true);

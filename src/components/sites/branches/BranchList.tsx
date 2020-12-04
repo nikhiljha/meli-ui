@@ -11,7 +11,7 @@ import styles from './BranchList.module.scss';
 import { BranchIcon } from '../../icons/BranchIcon';
 import { AddBranch } from './AddBranch';
 import { Branch } from './branch';
-import { useLoading } from '../../../commons/hooks/use-loading';
+import { useMountedState } from '../../../commons/hooks/use-mounted-state';
 import { BranchListItemView } from './BranchListItem';
 
 function sortBranches(a: Branch, b: Branch): number {
@@ -21,7 +21,7 @@ function sortBranches(a: Branch, b: Branch): number {
 export function BranchList() {
   const env = useEnv();
   const { siteId } = useParams();
-  const [loading, setLoading] = useLoading(true);
+  const [loading, setLoading] = useMountedState(true);
   const [error, setError] = useState();
   const [items, setItems] = useState<Branch[]>();
 

@@ -1,14 +1,14 @@
 import React from 'react';
 import { toast } from 'react-toastify';
 import { useEnv } from '../../providers/EnvProvider';
-import { useLoading } from '../../commons/hooks/use-loading';
+import { useMountedState } from '../../commons/hooks/use-mounted-state';
 import { axios } from '../../providers/axios';
 import { Button } from '../../commons/components/Button';
 import { useAuth } from '../../providers/AuthProvider';
 
 function Disconnect() {
   const env = useEnv();
-  const [loading, setLoading] = useLoading(false);
+  const [loading, setLoading] = useMountedState(false);
   const { signOut } = useAuth();
 
   const disconnect = () => {

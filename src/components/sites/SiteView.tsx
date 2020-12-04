@@ -26,7 +26,7 @@ import { SettingsIcon } from '../icons/SettingsIcon';
 import { BranchIcon } from '../icons/BranchIcon';
 import { ButtonIcon } from '../../commons/components/ButtonIcon';
 import { SiteSettings } from './settings/SiteSettings';
-import { useLoading } from '../../commons/hooks/use-loading';
+import { useMountedState } from '../../commons/hooks/use-mounted-state';
 import { HookIcon } from '../icons/HookIcon';
 import { HookProvider } from '../hooks/HookProvider';
 import { Hooks } from '../hooks/Hooks';
@@ -49,7 +49,7 @@ export function SiteView() {
   const [uid] = useState(uniqueId());
 
   const env = useEnv();
-  const [loading, setLoading] = useLoading(true);
+  const [loading, setLoading] = useMountedState(true);
   const [error, setError] = useState();
   const [site, setSite] = useState<Site>();
 

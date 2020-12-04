@@ -5,7 +5,7 @@ import { useEnv } from '../../../../providers/EnvProvider';
 import { axios } from '../../../../providers/axios';
 import { Loader } from '../../../../commons/components/Loader';
 import { OrgMember } from '../../../orgs/staff/members/org-member';
-import { useLoading } from '../../../../commons/hooks/use-loading';
+import { useMountedState } from '../../../../commons/hooks/use-mounted-state';
 
 export function ListItem({
   teamId, member, onAdded,
@@ -14,7 +14,7 @@ export function ListItem({
   member: OrgMember;
   onAdded: () => void;
 }) {
-  const [loading, setLoading] = useLoading(false);
+  const [loading, setLoading] = useMountedState(false);
   const env = useEnv();
 
   const select = () => {

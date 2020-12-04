@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import { Button } from '../../commons/components/Button';
 import { axios } from '../../providers/axios';
 import { useEnv } from '../../providers/EnvProvider';
-import { useLoading } from '../../commons/hooks/use-loading';
+import { useMountedState } from '../../commons/hooks/use-mounted-state';
 
 export function TestHook({
   config, className, disabled,
@@ -13,7 +13,7 @@ export function TestHook({
   className?: string;
   disabled: boolean;
 }) {
-  const [loading, setLoading] = useLoading(false);
+  const [loading, setLoading] = useMountedState(false);
   const env = useEnv();
   const test = () => {
     setLoading(true);

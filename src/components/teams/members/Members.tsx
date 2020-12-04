@@ -13,7 +13,7 @@ import { MemberView } from './MemberView';
 import styles from './Members.module.scss';
 import { TeamMemberIcon } from '../../icons/TeamMemberIcon';
 import { OrgMember } from '../../orgs/staff/members/org-member';
-import { useLoading } from '../../../commons/hooks/use-loading';
+import { useMountedState } from '../../../commons/hooks/use-mounted-state';
 
 function sortMembers(a: OrgMember, b: OrgMember): number {
   return a.name < b.name ? -1 : a.name > b.name ? 1 : 0;
@@ -22,7 +22,7 @@ function sortMembers(a: OrgMember, b: OrgMember): number {
 export function Members() {
   const env = useEnv();
   const { teamId } = useParams();
-  const [loading, setLoading] = useLoading(true);
+  const [loading, setLoading] = useMountedState(true);
   const [error, setError] = useState();
   const [items, setItems] = useState<TeamMember[]>();
 

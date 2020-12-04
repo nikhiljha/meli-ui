@@ -11,7 +11,7 @@ import { FullPageCentered } from '../commons/components/FullPageCentered';
 import { OrgMember } from '../components/orgs/staff/members/org-member';
 import { Org } from '../components/orgs/org';
 import { routerHistory } from './history';
-import { useLoading } from '../commons/hooks/use-loading';
+import { useMountedState } from '../commons/hooks/use-mounted-state';
 
 export interface CurrentOrg {
   org: Org;
@@ -35,7 +35,7 @@ export const useCurrentOrg = () => useContext(Context);
 const storageKey = 'org';
 
 export function OrgProvider(props) {
-  const [loading, setLoading] = useLoading(!!localStorage.getItem(storageKey));
+  const [loading, setLoading] = useMountedState(!!localStorage.getItem(storageKey));
   const [currentOrg, setCurrentOrg] = useState<CurrentOrg>();
   const socket = useSocket();
   const env = useEnv();

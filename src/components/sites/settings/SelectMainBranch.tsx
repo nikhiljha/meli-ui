@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Controller, useFormContext } from 'react-hook-form';
 import { useEnv } from '../../../providers/EnvProvider';
-import { useLoading } from '../../../commons/hooks/use-loading';
+import { useMountedState } from '../../../commons/hooks/use-mounted-state';
 import { Branch } from '../branches/branch';
 import { axios } from '../../../providers/axios';
 import { CustomSelect } from '../../../commons/components/CustomSelect';
@@ -13,7 +13,7 @@ import { required } from '../../../commons/components/forms/form-constants';
 
 function useBranches(siteId: string) {
   const env = useEnv();
-  const [loading, setLoading] = useLoading();
+  const [loading, setLoading] = useMountedState();
   const [error, setError] = useState();
   const [branches, setBranches] = useState<Branch[]>();
 

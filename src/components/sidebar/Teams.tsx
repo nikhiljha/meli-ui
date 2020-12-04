@@ -17,7 +17,7 @@ import { AddSite } from '../sites/AddSite';
 import { ButtonIcon } from '../../commons/components/ButtonIcon';
 import { Sites } from './Sites';
 import { useCurrentOrg } from '../../providers/OrgProvider';
-import { useLoading } from '../../commons/hooks/use-loading';
+import { useMountedState } from '../../commons/hooks/use-mounted-state';
 
 function sortTeams(a: Team, b: Team) {
   return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
@@ -50,7 +50,7 @@ function TeamSection({ team, className }: { team: Team; className? }) {
 
 export function Teams({ className }: { className? }) {
   const env = useEnv();
-  const [loading, setLoading] = useLoading(true);
+  const [loading, setLoading] = useMountedState(true);
   const [error, setError] = useState();
   const [teams, setItems] = useState<Team[]>();
   const teamsRef = useRef<Team[]>([]);

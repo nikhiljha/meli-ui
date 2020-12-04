@@ -8,7 +8,7 @@ import { Tooltip, tooltipToggle } from '../../commons/components/Tooltip';
 import { OrgNameInput } from './settings/OrgNameInput';
 import { Button } from '../../commons/components/Button';
 import { CardModal } from '../../commons/components/modals/CardModal';
-import { useLoading } from '../../commons/hooks/use-loading';
+import { useMountedState } from '../../commons/hooks/use-mounted-state';
 import { UserOrg } from '../auth/user-org';
 
 interface Form {
@@ -23,7 +23,7 @@ function Modal({ closeModal, onAdded }: {
   const methods = useForm<Form>({
     mode: 'onChange',
   });
-  const [loading, setLoading] = useLoading(false);
+  const [loading, setLoading] = useMountedState(false);
   const { handleSubmit, formState: { isDirty } } = methods;
 
   const onSubmit = (form: Form) => {
@@ -80,7 +80,7 @@ export function AddOrg({
   onAdded: (org: UserOrg) => void;
 }) {
   const [uid] = useState(uniqueId());
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useMountedState(false);
   const openModal = () => setIsOpen(true);
   const closeModal = () => setIsOpen(false);
 

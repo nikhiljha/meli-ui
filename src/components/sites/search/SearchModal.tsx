@@ -14,12 +14,12 @@ import { Loader } from '../../../commons/components/Loader';
 import { getTeamSites } from '../get-team-sites';
 import { SiteCard } from '../SiteCard';
 import { CardModal } from '../../../commons/components/modals/CardModal';
-import { useLoading } from '../../../commons/hooks/use-loading';
+import { useMountedState } from '../../../commons/hooks/use-mounted-state';
 
 export function SearchModal({ isOpen, closeModal }: { isOpen: boolean; closeModal: () => void }) {
   const env = useEnv();
   const search$ = useRef(new BehaviorSubject(''));
-  const [loading, setLoading] = useLoading(false);
+  const [loading, setLoading] = useMountedState(false);
   const [sites, setRepos] = useState<any[]>();
   const [searchInputRef, setSearchInputRef] = useState<HTMLInputElement>();
 
