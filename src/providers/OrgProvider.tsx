@@ -6,12 +6,11 @@ import { Env, useEnv } from './EnvProvider';
 import { axios } from './axios';
 import { emitNowAndOnReconnect } from './websockets/listen';
 import { useSocket } from './websockets/SocketProvider';
-import { Loader } from '../commons/components/Loader';
-import { FullPageCentered } from '../commons/components/FullPageCentered';
 import { OrgMember } from '../components/orgs/staff/members/org-member';
 import { Org } from '../components/orgs/org';
 import { routerHistory } from './history';
 import { useMountedState } from '../commons/hooks/use-mounted-state';
+import { useAuth } from './AuthProvider';
 
 export interface CurrentOrg {
   org: Org;
@@ -22,6 +21,7 @@ export interface CurrentOrg {
 }
 
 interface OrgContext {
+  loading: boolean;
   currentOrg: CurrentOrg;
   setOrg: (org: CurrentOrg) => void;
   changeCurrentOrg: (orgId: string) => Promise<void>;
@@ -39,6 +39,7 @@ export function OrgProvider(props) {
   const [currentOrg, setCurrentOrg] = useState<CurrentOrg>();
   const socket = useSocket();
   const env = useEnv();
+  const { user } = useAuth();
 
   const signOutOrg = () => {
     setCurrentOrg(null);
@@ -67,7 +68,8 @@ export function OrgProvider(props) {
 
   useEffect(() => {
     const orgId = localStorage.getItem(storageKey);
-    if (env && orgId) {
+    if (env && orgId && user) {
+      setLoading(true);
       changeCurrentOrg(env, orgId)
         .finally(() => setLoading(false))
         .catch(err => {
@@ -77,7 +79,7 @@ export function OrgProvider(props) {
           signOutOrg();
         });
     }
-  }, [env, setLoading]);
+  }, [env, setLoading, user]);
 
   useEffect(() => {
     if (currentOrg && socket) {
@@ -85,13 +87,10 @@ export function OrgProvider(props) {
     }
   }, [currentOrg, socket]);
 
-  return loading ? (
-    <FullPageCentered>
-      <Loader />
-    </FullPageCentered>
-  ) : (
+  return (
     <Context.Provider
       value={{
+        loading,
         currentOrg,
         changeCurrentOrg: org => changeCurrentOrg(env, org),
         signOutOrg,

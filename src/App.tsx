@@ -1,7 +1,5 @@
 import React from 'react';
-import {
-  Redirect, Route, Switch,
-} from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import classNames from 'classnames';
@@ -25,32 +23,7 @@ import { ButtonIcon } from './commons/components/ButtonIcon';
 import { Search } from './components/sites/search/Search';
 import { UserInvites } from './components/invites/UserInvites';
 import { UserView } from './components/user/UserView';
-
-function PrivateRoute({
-  component: Component, authed, redirectTo, ...rest
-}: {
-  component: any;
-  authed: any;
-  redirectTo: string;
-  [prop: string]: any;
-}) {
-  return (
-    <Route
-      {...rest}
-      render={(props: any) => (authed
-        ? <Component {...props} />
-        : (
-          <Redirect to={{
-            pathname: redirectTo,
-            state: {
-              from: props.location,
-            },
-          }}
-          />
-        ))}
-    />
-  );
-}
+import { PrivateRoute } from './commons/components/PrivateRoute';
 
 function Header() {
   const { user } = useAuth();
