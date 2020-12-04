@@ -1,3 +1,10 @@
+# [1.0.0-next.5](https://github.com/getmeli/meli-ui/compare/v1.0.0-next.4...v1.0.0-next.5) (2020-12-04)
+
+
+### Bug Fixes
+
+* wrong npm scope in upload snippet ([acd93cb](https://github.com/getmeli/meli-ui/commit/acd93cbb3a0e36e1e4f46271832e6bc0bba25be5))
+
 # [1.0.0-next.4](https://github.com/getmeli/meli-ui/compare/v1.0.0-next.3...v1.0.0-next.4) (2020-12-03)
 
 

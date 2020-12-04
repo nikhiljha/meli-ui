@@ -1,6 +1,6 @@
 {
   "name": "@skipper/ui",
-  "version": "1.0.0-next.4",
+  "version": "1.0.0-next.5",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.32",
