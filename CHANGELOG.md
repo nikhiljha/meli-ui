@@ -1,3 +1,17 @@
+# [1.0.0-next.6](https://github.com/getmeli/meli-ui/compare/v1.0.0-next.5...v1.0.0-next.6) (2020-12-06)
+
+
+### Bug Fixes
+
+* 401s during signout ([53fb7dc](https://github.com/getmeli/meli-ui/commit/53fb7dca29235d806468214ca7ed906f245929be))
+
+
+### Features
+
+* add link to orgs when no org selected ([26d0117](https://github.com/getmeli/meli-ui/commit/26d01178b24922d9ae9083ebff0431d9afff5e1a))
+* in-memory login with user and password ([6347030](https://github.com/getmeli/meli-ui/commit/6347030505bc1e6eea71ccf08ac1a63807cb94cc))
+* use mounted state to avoid memory leaks ([fa8bfff](https://github.com/getmeli/meli-ui/commit/fa8bfffb4aa895cc31351d312632f014ed019c20))
+
 # [1.0.0-next.5](https://github.com/getmeli/meli-ui/compare/v1.0.0-next.4...v1.0.0-next.5) (2020-12-04)
 
 
