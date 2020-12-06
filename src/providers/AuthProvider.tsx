@@ -1,5 +1,5 @@
 import React, {
-  createContext, useContext, useEffect, useState,
+  createContext, useCallback, useContext, useEffect, useState,
 } from 'react';
 import { toast } from 'react-toastify';
 import { useEnv } from './EnvProvider';
@@ -17,6 +17,8 @@ export interface User {
 }
 
 export interface Auth {
+  loading: boolean;
+  fetchUser: () => void;
   user: User;
   setUser: (user: User) => undefined;
   signOut: () => void;
@@ -28,11 +30,12 @@ export const useAuth = () => useContext(AuthContext);
 
 export function AuthProvider(props) {
   const [initialLoad, setInitialLoad] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [user, setUser] = useState<User>();
   const socket = useSocket();
   const env = useEnv();
 
-  const signOut = () => {
+  const signOut = useCallback(() => {
     axios
       .post(`${env.MELI_API_URL}/auth/signout`)
       .then(() => setUser(null))
@@ -45,22 +48,28 @@ export function AuthProvider(props) {
           type: 'error',
         });
       });
-  };
+  }, [env]);
+
+  const fetchUser = useCallback(() => {
+    setLoading(true);
+    axios
+      .get(`${env.MELI_API_URL}/api/v1/user`)
+      .then(({ data }) => setUser(data))
+      .catch(err => {
+        toast(`Could not get user: ${err}`, {
+          type: 'error',
+        });
+        setUser(null);
+      })
+      .finally(() => {
+        setInitialLoad(false);
+        setLoading(true);
+      });
+  }, [env]);
 
   useEffect(() => {
-    if (env) {
-      axios
-        .get(`${env.MELI_API_URL}/api/v1/user`)
-        .then(({ data }) => setUser(data))
-        .catch(err => {
-          toast(`Could not get user: ${err}`, {
-            type: 'error',
-          });
-          setUser(null);
-        })
-        .finally(() => setInitialLoad(false));
-    }
-  }, [env]);
+    fetchUser();
+  }, [fetchUser]);
 
   useEffect(() => {
     if (user && socket) {
@@ -76,6 +85,8 @@ export function AuthProvider(props) {
     ) : (
       <AuthContext.Provider
         value={{
+          loading,
+          fetchUser,
           user,
           setUser,
           signOut,
