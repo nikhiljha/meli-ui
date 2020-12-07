@@ -1,3 +1,10 @@
+# [1.0.0-next.8](https://github.com/getmeli/meli-ui/compare/v1.0.0-next.7...v1.0.0-next.8) (2020-12-07)
+
+
+### Bug Fixes
+
+* **site settings:** missing default value for mainBranch ([67545f5](https://github.com/getmeli/meli-ui/commit/67545f5e63c698f501448d4ee96284038d18e55e))
+
 # [1.0.0-next.7](https://github.com/getmeli/meli-ui/compare/v1.0.0-next.6...v1.0.0-next.7) (2020-12-07)
 
 
