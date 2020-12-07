@@ -1,3 +1,10 @@
+# [1.0.0-next.9](https://github.com/getmeli/meli-ui/compare/v1.0.0-next.8...v1.0.0-next.9) (2020-12-07)
+
+
+### Features
+
+* make org settings more obvious ([e304e04](https://github.com/getmeli/meli-ui/commit/e304e04c234f3028b02bb3a473fc726896371a30))
+
 # [1.0.0-next.8](https://github.com/getmeli/meli-ui/compare/v1.0.0-next.7...v1.0.0-next.8) (2020-12-07)
 
 
