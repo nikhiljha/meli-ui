@@ -13,7 +13,6 @@ import { useMountedState } from '../../../commons/hooks/use-mounted-state';
 import { Button } from '../../../commons/components/Button';
 import { Web } from './configs/Web';
 import { HookEvents } from './HookEvents';
-import { Github } from './configs/Github';
 
 const types = enumToArray(HookType);
 
@@ -29,8 +28,6 @@ function Config({ type }: {
       return <Slack />;
     case HookType.web:
       return <Web />;
-    case HookType.github:
-      return <Github />;
     default:
       return <></>;
   }
