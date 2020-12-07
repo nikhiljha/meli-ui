@@ -1,3 +1,10 @@
+# [1.0.0-next.7](https://github.com/getmeli/meli-ui/compare/v1.0.0-next.6...v1.0.0-next.7) (2020-12-07)
+
+
+### Bug Fixes
+
+* async state update in orgs component causes warning ([5d26e39](https://github.com/getmeli/meli-ui/commit/5d26e3944c5215c497e856c08c5d1e3f3585f590))
+
 # [1.0.0-next.6](https://github.com/getmeli/meli-ui/compare/v1.0.0-next.5...v1.0.0-next.6) (2020-12-06)
 
 
