@@ -1,3 +1,11 @@
+# [1.0.0-next.10](https://github.com/getmeli/meli-ui/compare/v1.0.0-next.9...v1.0.0-next.10) (2020-12-07)
+
+
+### Bug Fixes
+
+* github should not be in hook types ([4f6e1c9](https://github.com/getmeli/meli-ui/commit/4f6e1c9a275491086a9e602760647582ad7f2991))
+* github should not be in hook types ([dd39cd1](https://github.com/getmeli/meli-ui/commit/dd39cd11cc5cd561edf0adb38d66874519736308))
+
 # [1.0.0-next.9](https://github.com/getmeli/meli-ui/compare/v1.0.0-next.8...v1.0.0-next.9) (2020-12-07)
 
 
