@@ -52,7 +52,7 @@ export function UserInfo({ className }: {
             icon={<FontAwesomeIcon icon={faCog} fixedWidth />}
             to="/org"
           >
-            Organization
+            Organization Settings
           </DropdownLink>
         )}
         <DropdownLink
