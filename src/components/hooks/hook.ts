@@ -3,7 +3,6 @@ export enum HookType {
   mattermost = 'mattermost',
   slack = 'slack',
   web = 'web',
-  github = 'github',
 }
 
 export interface Hook {
