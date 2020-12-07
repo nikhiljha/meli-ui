@@ -56,6 +56,7 @@ export function SelectMainBranch({ siteId }: {
         rules={{
           required,
         }}
+        defaultValue={undefined}
         render={({ value, onChange }) => (
           <CustomSelect
             options={branches?.map(b => ({
