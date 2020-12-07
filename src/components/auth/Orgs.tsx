@@ -55,7 +55,7 @@ export function Orgs() {
   const env = useEnv();
   const [loading, setLoading] = useMountedState(true);
   const [error, setError] = useState();
-  const [items, setItems] = useState<UserOrg[]>();
+  const [items, setItems] = useMountedState<UserOrg[]>();
 
   useEffect(() => {
     setLoading(true);
@@ -66,7 +66,7 @@ export function Orgs() {
       .then(setItems)
       .catch(setError)
       .finally(() => setLoading(false));
-  }, [env, setLoading]);
+  }, [env, setLoading, setItems]);
 
   const onAdded = (org: UserOrg) => {
     setItems([org, ...items].sort(sortOrgs));
