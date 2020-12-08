@@ -1,3 +1,10 @@
+# [1.0.0-next.12](https://github.com/getmeli/meli-ui/compare/v1.0.0-next.11...v1.0.0-next.12) (2020-12-08)
+
+
+### Features
+
+* fetch api info and copy to clipboard ([003a666](https://github.com/getmeli/meli-ui/commit/003a6667d41648c83febfb12e7a4f3a0041e7bfc))
+
 # [1.0.0-next.11](https://github.com/getmeli/meli-ui/compare/v1.0.0-next.10...v1.0.0-next.11) (2020-12-08)
 
 
