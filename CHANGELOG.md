@@ -1,3 +1,15 @@
+# [1.0.0-next.11](https://github.com/getmeli/meli-ui/compare/v1.0.0-next.10...v1.0.0-next.11) (2020-12-08)
+
+
+### Bug Fixes
+
+* wrong maintainer label in Dockerfile ([e63ccd9](https://github.com/getmeli/meli-ui/commit/e63ccd9f5e2992c3b1b530b88d7dea18146e2291))
+
+
+### Features
+
+* make docker image smaller ([86a62b3](https://github.com/getmeli/meli-ui/commit/86a62b311eb3c7d838db982142baa5d987a4ed5e))
+
 # [1.0.0-next.10](https://github.com/getmeli/meli-ui/compare/v1.0.0-next.9...v1.0.0-next.10) (2020-12-07)
 
 
