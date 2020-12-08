@@ -84,7 +84,9 @@ export function App() {
           <PrivateRoute path="/teams" exact component={TeamList} authed={user && currentOrg} redirectTo="/orgs" />
           <PrivateRoute path="/teams/:teamId" component={TeamView} authed={user && currentOrg} redirectTo="/orgs" />
           <PrivateRoute path="/sites/:siteId" component={SiteView} authed={user && currentOrg} redirectTo="/orgs" />
+
           <Route path="/legal" component={Legals} />
+
           <Route component={NotFound} />
         </Switch>
       </main>

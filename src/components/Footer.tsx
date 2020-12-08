@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import styles from './Footer.module.scss';
 import { SentryIcon } from '../commons/sentry/SentryIcon';
 import { ExternalLink } from '../commons/components/ExternalLink';
+import { BuildInfo } from './BuildInfo';
 
 export function Footer() {
   return (
@@ -24,10 +25,7 @@ export function Footer() {
         </div>
         <div className="text-muted d-flex align-items-center">
           <SentryIcon />
-          <div className="ml-2">
-            v
-            {process.env.REACT_APP_VERSION}
-          </div>
+          <BuildInfo className="ml-2" />
         </div>
       </footer>
     </>
