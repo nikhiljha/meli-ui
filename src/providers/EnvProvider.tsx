@@ -1,6 +1,4 @@
-import React, {
-  createContext, useContext, useEffect, useState,
-} from 'react';
+import React, { createContext, useContext, useEffect, useState } from 'react';
 import { merge } from 'lodash';
 import { FullPageLoader } from '../commons/components/FullPageLoader';
 import { FullPageCentered } from '../commons/components/FullPageCentered';
@@ -18,6 +16,20 @@ export const EnvContext = createContext<Env>(undefined);
 
 export const useEnv = () => useContext(EnvContext);
 
+function parseEnv(dotenv: string): any {
+  return dotenv
+    .split('\n')
+    .map(str => str.match(/^(\w+)=(.*)$/))
+    .filter(arr => !!arr)
+    .reduce(
+      (current, [, key, val]) => {
+        current[key] = val;
+        return current;
+      },
+      {},
+    );
+}
+
 export function EnvProvider(props) {
   const [loading, setLoading] = useMountedState(true);
   const [env, setEnv] = useState<Env>();
@@ -25,8 +37,9 @@ export function EnvProvider(props) {
 
   useEffect(() => {
     axios
-      .get('/env.json')
-      .then(({ data }) => merge(defaultEnv, data))
+      .get('/env.txt')
+      .then(({ data }) => parseEnv(data))
+      .then(json => merge(defaultEnv, json))
       .then(loadedEnv => {
         setEnv(loadedEnv);
         // eslint-disable-next-line no-console

@@ -1,17 +1,14 @@
 FROM nginx:1.17-alpine
 
 COPY docker/nginx.default.conf /etc/nginx/conf.d/default.conf
-COPY docker/docker-entrypoint.sh /docker-entrypoint.sh
-COPY docker/env.js /env.js
+COPY docker/entrypoint.sh /entrypoint.sh
+COPY docker/env.sh /env.sh
 
-RUN apk --no-cache add \
-    bash \
-    nodejs \
-  && chmod +x /docker-entrypoint.sh /env.js
+RUN chmod +x /entrypoint.sh /env.sh
 
 COPY ./build /www
 
 LABEL maintainer="meli.sh"
 
-ENTRYPOINT ["/docker-entrypoint.sh"]
+ENTRYPOINT ["/entrypoint.sh"]
 CMD ["nginx", "-g", "daemon off;"]

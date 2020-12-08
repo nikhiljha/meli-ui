@@ -1,2 +1,2 @@
 npm run build
-docker build -f ./docker/Dockerfile -t meli/ui .
+docker build -f ./docker/Dockerfile -t tmp .
