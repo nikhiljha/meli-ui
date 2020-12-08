@@ -11,7 +11,7 @@ RUN apk --no-cache add \
 
 COPY ./build /www
 
-LABEL maintainer="meli.io"
+LABEL maintainer="meli.sh"
 
 ENTRYPOINT ["/docker-entrypoint.sh"]
 CMD ["nginx", "-g", "daemon off;"]
