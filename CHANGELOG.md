@@ -1,3 +1,17 @@
+# [1.0.0-next.13](https://github.com/getmeli/meli-ui/compare/v1.0.0-next.12...v1.0.0-next.13) (2020-12-09)
+
+
+### Bug Fixes
+
+* always redirected to home after loaded user and org ([#1](https://github.com/getmeli/meli-ui/issues/1)) ([dcb85f6](https://github.com/getmeli/meli-ui/commit/dcb85f6e0fa37fad57d3dceeda682c92e4d68be0))
+* **sentry:** hide icon when not configured and reload page on enable/disable ([9eeef5f](https://github.com/getmeli/meli-ui/commit/9eeef5f917cb803481d6b0a67d84a89d493adff8))
+* tooltip overflows page bottom ([0dd0077](https://github.com/getmeli/meli-ui/commit/0dd007703b0ca79575ce7c81a277771f102a16cc))
+
+
+### Features
+
+* include sourcemaps in docker image ([e72ab62](https://github.com/getmeli/meli-ui/commit/e72ab6276ccd7d283a2eebc3310bcae1cf59b550))
+
 # [1.0.0-next.12](https://github.com/getmeli/meli-ui/compare/v1.0.0-next.11...v1.0.0-next.12) (2020-12-08)
 
 
