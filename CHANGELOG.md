@@ -1,3 +1,10 @@
+# [1.0.0-next.15](https://github.com/getmeli/meli-ui/compare/v1.0.0-next.14...v1.0.0-next.15) (2020-12-09)
+
+
+### Bug Fixes
+
+* deadlock in login screen ([d8784e4](https://github.com/getmeli/meli-ui/commit/d8784e47a231fe8f0cca07178d52f01b429b529e))
+
 # [1.0.0-next.14](https://github.com/getmeli/meli-ui/compare/v1.0.0-next.13...v1.0.0-next.14) (2020-12-09)
 
 
