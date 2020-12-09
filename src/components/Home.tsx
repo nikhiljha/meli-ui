@@ -16,7 +16,7 @@ export function Home() {
           {' '}
           <strong className="font-secondary">Meli</strong>
           {' '}
-          because we believe that shipping apps should not be hard. We truly hope you enjoy using it as much as we do.
+          because we believe that shipping frontend should not be hard. We truly hope you enjoy using it as much as we do.
         </p>
         <div className={styles.quoteContainer}>
           <FontAwesomeIcon icon={faQuoteLeft} className={styles.quoteIcon} />
