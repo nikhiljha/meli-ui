@@ -1,12 +1,12 @@
-import React, {
-  createContext, useContext, useState,
-} from 'react';
+import React, { createContext, useContext, useState } from 'react';
 import classNames from 'classnames';
 import styles from './SentryProvider.module.scss';
 import { CardModal } from '../components/modals/CardModal';
 import { ExternalLink } from '../components/ExternalLink';
 
 const sentryLocalStorageKey = 'sentry.enabled';
+
+export const SENTRY_CONFIGURED = !!process.env.REACT_APP_SENTRY_RELEASE && !!process.env.REACT_APP_SENTRY_DSN;
 
 export function isSentryEnabled(): boolean {
   return localStorage.getItem(sentryLocalStorageKey) === 'true';
@@ -26,9 +26,11 @@ export const useSentry = () => useContext(SentryContext);
 
 export function SentryProvider(props) {
   const [isOpen, setIsOpen] = useState(!localStorage.getItem(sentryLocalStorageKey));
-  const [enabled, setEnabled] = useState<boolean>(isSentryEnabled());
+  const [enabled] = useState<boolean>(isSentryEnabled());
 
-  const openModal = () => setIsOpen(true);
+  const openModal = () => {
+    setIsOpen(true);
+  };
 
   const enable = () => {
     localStorage.setItem(sentryLocalStorageKey, 'true');
@@ -37,15 +39,15 @@ export function SentryProvider(props) {
 
   const disable = () => {
     localStorage.setItem(sentryLocalStorageKey, 'false');
-    setEnabled(false);
-    setIsOpen(false);
+    window.location.reload();
   };
 
   return !isOpen ? (
     <SentryContext.Provider
       {...props}
       value={{
-        enabled, openModal,
+        enabled,
+        openModal,
       }}
     />
   ) : (

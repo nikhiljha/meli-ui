@@ -11,12 +11,10 @@ import { AuthProvider } from './providers/AuthProvider';
 import { EnvProvider } from './providers/EnvProvider';
 import { routerHistory } from './providers/history';
 import { SocketProvider } from './providers/websockets/SocketProvider';
-import { isSentryEnabled, SentryProvider } from './commons/sentry/SentryProvider';
+import { isSentryEnabled, SENTRY_CONFIGURED, SentryProvider } from './commons/sentry/SentryProvider';
 import { OrgProvider } from './providers/OrgProvider';
 
-const isSentryConfigured = !!process.env.REACT_APP_SENTRY_RELEASE && !!process.env.REACT_APP_SENTRY_DSN;
-
-if (isSentryConfigured) {
+if (SENTRY_CONFIGURED) {
   if (isSentryEnabled()) {
     // eslint-disable-next-line no-console
     console.log('Sentry is enabled', process.env.REACT_APP_SENTRY_RELEASE, process.env.REACT_APP_SENTRY_DSN);
@@ -78,7 +76,7 @@ ReactDOM.render(
   // <React.StrictMode>
   <>
     <div id="blur-overlay">
-      {isSentryConfigured ? (
+      {SENTRY_CONFIGURED ? (
         <SentryProvider>
           {app}
         </SentryProvider>

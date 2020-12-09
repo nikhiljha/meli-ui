@@ -3,14 +3,14 @@ import { uniqueId } from 'lodash';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShieldAlt } from '@fortawesome/free-solid-svg-icons';
 import classNames from 'classnames';
-import { useSentry } from './SentryProvider';
+import { SENTRY_CONFIGURED, useSentry } from './SentryProvider';
 import { Tooltip, tooltipToggle } from '../components/Tooltip';
 
 export function SentryIcon() {
   const { enabled, openModal } = useSentry();
   const [uid] = useState(uniqueId());
 
-  return (
+  return SENTRY_CONFIGURED ? (
     <>
       <FontAwesomeIcon
         {...tooltipToggle(uid)}
@@ -24,5 +24,7 @@ export function SentryIcon() {
         {enabled ? 'enabled' : 'disabled'}
       </Tooltip>
     </>
+  ) : (
+    <></>
   );
 }
