@@ -56,8 +56,8 @@ function Header() {
 }
 
 export function App() {
-  const { user } = useAuth();
-  const { currentOrg } = useCurrentOrg();
+  const { user, loading: loadingUser } = useAuth();
+  const { currentOrg, loading: loadingOrg } = useCurrentOrg();
   return (
     <div className={styles.app} id="app">
       <Header />
@@ -67,23 +67,79 @@ export function App() {
       <main className={styles.main}>
         <Switch>
           {/* public */}
-          <PrivateRoute path="/login" exact component={SignIn} authed={!user} redirectTo="/" />
+          <PrivateRoute
+            path="/login"
+            exact
+            component={SignIn}
+            authed={!user}
+            redirectTo="/"
+            loading={loadingUser}
+          />
 
           {/* user */}
-          <PrivateRoute path="/user" component={UserView} authed={user} redirectTo="/login" />
-          <PrivateRoute path="/invite" component={UserInvites} authed={user} redirectTo="/login" />
+          <PrivateRoute
+            path="/user"
+            component={UserView}
+            authed={user}
+            redirectTo="/login"
+            loading={loadingUser}
+          />
+          <PrivateRoute
+            path="/invite"
+            component={UserInvites}
+            authed={user}
+            redirectTo="/login"
+            loading={loadingUser}
+          />
 
           {/* user && !currentOrg */}
-          <PrivateRoute path="/orgs" exact component={Orgs} authed={user && !currentOrg} redirectTo="/login" />
+          <PrivateRoute
+            path="/orgs"
+            exact
+            component={Orgs}
+            authed={user && !currentOrg}
+            redirectTo="/login"
+            loading={loadingUser && loadingOrg}
+          />
 
           {/* user && currentOrg */}
-          <PrivateRoute path="/" exact component={Home} authed={user && currentOrg} redirectTo="/orgs" />
-          {currentOrg?.isAdminOrOwner && (
-            <PrivateRoute path="/org" component={OrgView} authed={user && currentOrg} redirectTo="/orgs" />
-          )}
-          <PrivateRoute path="/teams" exact component={TeamList} authed={user && currentOrg} redirectTo="/orgs" />
-          <PrivateRoute path="/teams/:teamId" component={TeamView} authed={user && currentOrg} redirectTo="/orgs" />
-          <PrivateRoute path="/sites/:siteId" component={SiteView} authed={user && currentOrg} redirectTo="/orgs" />
+          <PrivateRoute
+            path="/"
+            exact
+            component={Home}
+            authed={user && currentOrg}
+            redirectTo="/orgs"
+            loading={loadingUser && loadingOrg}
+          />
+          <PrivateRoute
+            path="/org"
+            component={OrgView}
+            authed={user && currentOrg && currentOrg.isAdminOrOwner}
+            redirectTo="/orgs"
+            loading={loadingUser && loadingOrg}
+          />
+          <PrivateRoute
+            path="/teams"
+            exact
+            component={TeamList}
+            authed={user && currentOrg}
+            redirectTo="/orgs"
+            loading={loadingUser && loadingOrg}
+          />
+          <PrivateRoute
+            path="/teams/:teamId"
+            component={TeamView}
+            authed={user && currentOrg}
+            redirectTo="/orgs"
+            loading={loadingUser && loadingOrg}
+          />
+          <PrivateRoute
+            path="/sites/:siteId"
+            component={SiteView}
+            authed={user && currentOrg}
+            redirectTo="/orgs"
+            loading={loadingUser && loadingOrg}
+          />
 
           <Route path="/legal" component={Legals} />
 
