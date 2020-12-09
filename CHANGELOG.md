@@ -1,3 +1,10 @@
+# [1.0.0-next.14](https://github.com/getmeli/meli-ui/compare/v1.0.0-next.13...v1.0.0-next.14) (2020-12-09)
+
+
+### Features
+
+* **home:** replace app with frontend in hero message ([cb1b92a](https://github.com/getmeli/meli-ui/commit/cb1b92aee2455bcbf349f93fbdbbe5f37170354e))
+
 # [1.0.0-next.13](https://github.com/getmeli/meli-ui/compare/v1.0.0-next.12...v1.0.0-next.13) (2020-12-09)
 
 
