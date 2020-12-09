@@ -7,7 +7,7 @@ export function Tooltip({
 }: { children: any; id: string; [key: string]: any }) {
   return (
     <>
-      <ReactTooltip place="bottom" effect="solid" id={id} className={styles.tooltip} {...props}>
+      <ReactTooltip effect="solid" id={id} className={styles.tooltip} {...props}>
         {children}
       </ReactTooltip>
     </>
