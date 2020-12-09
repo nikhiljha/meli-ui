@@ -1,13 +1,11 @@
 import { Redirect, Route } from 'react-router-dom';
 import React from 'react';
-import { Loader } from './Loader';
 
 export function PrivateRoute({
-  component: Component, authed, redirectTo, loading, ...rest
+  component: Component, authed, redirectTo, ...rest
 }: {
   component: any;
   authed: any;
-  loading: boolean;
   redirectTo: string;
   [prop: string]: any;
 }) {
@@ -15,9 +13,7 @@ export function PrivateRoute({
     <Route
       {...rest}
       render={(props: any) => (
-        loading ? (
-          <Loader />
-        ) : authed ? (
+        authed ? (
           <Component {...props} />
         ) : (
           <Redirect to={{

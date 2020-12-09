@@ -1,10 +1,10 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import { merge } from 'lodash';
-import { FullPageLoader } from '../commons/components/FullPageLoader';
 import { FullPageCentered } from '../commons/components/FullPageCentered';
 import { AlertError } from '../commons/components/AlertError';
 import { axios } from './axios';
 import { useMountedState } from '../commons/hooks/use-mounted-state';
+import { Loader } from '../commons/components/Loader';
 
 export interface Env {
   MELI_API_URL: string;
@@ -49,17 +49,18 @@ export function EnvProvider(props) {
       .catch(setError);
   }, [setLoading]);
 
-  if (loading) {
-    return <FullPageLoader />;
-  }
-
-  if (error) {
-    return (
-      <FullPageCentered>
-        <AlertError error={error} />
-      </FullPageCentered>
-    );
-  }
-
-  return <EnvContext.Provider value={env} {...props} />;
+  return loading ? (
+    <FullPageCentered>
+      <p>
+        Loading env
+        <Loader className="ml-2" />
+      </p>
+    </FullPageCentered>
+  ) : error ? (
+    <FullPageCentered>
+      <AlertError error={error} />
+    </FullPageCentered>
+  ) : (
+    <EnvContext.Provider value={env} {...props} />
+  );
 }

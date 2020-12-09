@@ -24,6 +24,8 @@ import { Search } from './components/sites/search/Search';
 import { UserInvites } from './components/invites/UserInvites';
 import { UserView } from './components/user/UserView';
 import { PrivateRoute } from './commons/components/PrivateRoute';
+import { FullPageCentered } from './commons/components/FullPageCentered';
+import { Loader } from './commons/components/Loader';
 
 function Header() {
   const { user } = useAuth();
@@ -56,9 +58,17 @@ function Header() {
 }
 
 export function App() {
-  const { user, loading: loadingUser } = useAuth();
-  const { currentOrg, loading: loadingOrg } = useCurrentOrg();
-  return (
+  const { user, initialized: userInitialized } = useAuth();
+  const { currentOrg, initialized: orgInitialized } = useCurrentOrg();
+  const initialized = userInitialized || orgInitialized;
+  return !initialized ? (
+    <FullPageCentered>
+      <p>
+        Initializing
+        <Loader className="ml-2" />
+      </p>
+    </FullPageCentered>
+  ) : (
     <div className={styles.app} id="app">
       <Header />
       {currentOrg && (
@@ -73,7 +83,6 @@ export function App() {
             component={SignIn}
             authed={!user}
             redirectTo="/"
-            loading={loadingUser}
           />
 
           {/* user */}
@@ -82,14 +91,12 @@ export function App() {
             component={UserView}
             authed={user}
             redirectTo="/login"
-            loading={loadingUser}
           />
           <PrivateRoute
             path="/invite"
             component={UserInvites}
             authed={user}
             redirectTo="/login"
-            loading={loadingUser}
           />
 
           {/* user && !currentOrg */}
@@ -99,7 +106,6 @@ export function App() {
             component={Orgs}
             authed={user && !currentOrg}
             redirectTo="/login"
-            loading={loadingUser && loadingOrg}
           />
 
           {/* user && currentOrg */}
@@ -109,14 +115,12 @@ export function App() {
             component={Home}
             authed={user && currentOrg}
             redirectTo="/orgs"
-            loading={loadingUser && loadingOrg}
           />
           <PrivateRoute
             path="/org"
             component={OrgView}
             authed={user && currentOrg && currentOrg.isAdminOrOwner}
             redirectTo="/orgs"
-            loading={loadingUser && loadingOrg}
           />
           <PrivateRoute
             path="/teams"
@@ -124,21 +128,18 @@ export function App() {
             component={TeamList}
             authed={user && currentOrg}
             redirectTo="/orgs"
-            loading={loadingUser && loadingOrg}
           />
           <PrivateRoute
             path="/teams/:teamId"
             component={TeamView}
             authed={user && currentOrg}
             redirectTo="/orgs"
-            loading={loadingUser && loadingOrg}
           />
           <PrivateRoute
             path="/sites/:siteId"
             component={SiteView}
             authed={user && currentOrg}
             redirectTo="/orgs"
-            loading={loadingUser && loadingOrg}
           />
 
           <Route path="/legal" component={Legals} />

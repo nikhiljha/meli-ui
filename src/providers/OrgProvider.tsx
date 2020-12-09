@@ -7,8 +7,9 @@ import { useSocket } from './websockets/SocketProvider';
 import { OrgMember } from '../components/orgs/staff/members/org-member';
 import { Org } from '../components/orgs/org';
 import { routerHistory } from './history';
-import { useMountedState } from '../commons/hooks/use-mounted-state';
 import { useAuth } from './AuthProvider';
+import { FullPageCentered } from '../commons/components/FullPageCentered';
+import { Loader } from '../commons/components/Loader';
 
 export interface CurrentOrg {
   org: Org;
@@ -19,6 +20,7 @@ export interface CurrentOrg {
 }
 
 interface OrgContext {
+  initialized: boolean;
   loading: boolean;
   currentOrg: CurrentOrg;
   setOrg: (org: CurrentOrg) => void;
@@ -33,7 +35,8 @@ export const useCurrentOrg = () => useContext(Context);
 const storageKey = 'org';
 
 export function OrgProvider(props) {
-  const [loading, setLoading] = useMountedState(!!localStorage.getItem(storageKey));
+  const [initialized, setInitialized] = useState(!localStorage.getItem(storageKey));
+  const [loading, setLoading] = useState(!!localStorage.getItem(storageKey));
   const [currentOrg, setCurrentOrg] = useState<CurrentOrg>();
   const socket = useSocket();
   const env = useEnv();
@@ -45,8 +48,9 @@ export function OrgProvider(props) {
     routerHistory.push('/orgs');
   };
 
-  const changeCurrentOrg = (environment: Env, orgId: string) => (
-    Promise
+  const changeCurrentOrg = (environment: Env, orgId: string) => {
+    setLoading(true);
+    return Promise
       .all([
         axios.get<Org>(`${environment.MELI_API_URL}/api/v1/orgs/${orgId}`),
         axios.get<OrgMember>(`${environment.MELI_API_URL}/api/v1/orgs/${orgId}/member`),
@@ -62,20 +66,25 @@ export function OrgProvider(props) {
         setCurrentOrg(newCurrentOrg);
         localStorage.setItem(storageKey, newCurrentOrg?.org._id);
       })
-  );
+      .finally(() => {
+        setInitialized(true);
+        setLoading(false);
+      });
+  };
 
   useEffect(() => {
     const orgId = localStorage.getItem(storageKey);
-    if (env && orgId && user) {
-      setLoading(true);
+    if (user && orgId) {
       changeCurrentOrg(env, orgId)
-        .finally(() => setLoading(false))
         .catch(err => {
-          toast(`Could not get org: ${err}`, {
+          toast(`Could not get current org: ${err}`, {
             type: 'error',
           });
           signOutOrg();
         });
+    } else {
+      setInitialized(true);
+      setLoading(false);
     }
   }, [env, setLoading, user]);
 
@@ -85,9 +94,17 @@ export function OrgProvider(props) {
     }
   }, [currentOrg, socket]);
 
-  return (
+  return !initialized ? (
+    <FullPageCentered>
+      <p>
+        Loading organization
+        <Loader className="ml-2" />
+      </p>
+    </FullPageCentered>
+  ) : (
     <Context.Provider
       value={{
+        initialized,
         loading,
         currentOrg,
         changeCurrentOrg: org => changeCurrentOrg(env, org),

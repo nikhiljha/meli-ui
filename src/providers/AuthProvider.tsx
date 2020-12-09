@@ -1,6 +1,4 @@
-import React, {
-  createContext, useCallback, useContext, useEffect, useState,
-} from 'react';
+import React, { createContext, useCallback, useContext, useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 import { useEnv } from './EnvProvider';
 import { axios } from './axios';
@@ -17,6 +15,7 @@ export interface User {
 }
 
 export interface Auth {
+  initialized: boolean;
   loading: boolean;
   fetchUser: () => void;
   user: User;
@@ -29,7 +28,7 @@ export const AuthContext = createContext<Auth>(undefined);
 export const useAuth = () => useContext(AuthContext);
 
 export function AuthProvider(props) {
-  const [initialLoad, setInitialLoad] = useState(true);
+  const [initialized, setInitialized] = useState(false);
   const [loading, setLoading] = useState(false);
   const [user, setUser] = useState<User>();
   const socket = useSocket();
@@ -62,8 +61,8 @@ export function AuthProvider(props) {
         setUser(null);
       })
       .finally(() => {
-        setInitialLoad(false);
-        setLoading(true);
+        setInitialized(true);
+        setLoading(false);
       });
   }, [env]);
 
@@ -78,13 +77,17 @@ export function AuthProvider(props) {
   }, [user, socket]);
 
   return (
-    initialLoad ? (
+    !initialized ? (
       <FullPageCentered>
-        <Loader />
+        <p>
+          Loading auth
+          <Loader className="ml-2" />
+        </p>
       </FullPageCentered>
     ) : (
       <AuthContext.Provider
         value={{
+          initialized,
           loading,
           fetchUser,
           user,
