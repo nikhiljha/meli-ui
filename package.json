@@ -1,5 +1,5 @@
 {
-  "name": "@skipper/ui",
+  "name": "@getmeli/ui",
   "version": "1.0.0-next.19",
   "private": true,
   "dependencies": {
