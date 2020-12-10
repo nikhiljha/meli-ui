@@ -1,3 +1,40 @@
+# 1.0.0-beta.1 (2020-12-10)
+
+
+### Bug Fixes
+
+* 401s during signout ([53fb7dc](https://github.com/getmeli/meli-ui/commit/53fb7dca29235d806468214ca7ed906f245929be))
+* always redirected to home after loaded user and org ([#1](https://github.com/getmeli/meli-ui/issues/1)) ([dcb85f6](https://github.com/getmeli/meli-ui/commit/dcb85f6e0fa37fad57d3dceeda682c92e4d68be0))
+* async state update in orgs component causes warning ([5d26e39](https://github.com/getmeli/meli-ui/commit/5d26e3944c5215c497e856c08c5d1e3f3585f590))
+* deadlock in login screen ([d8784e4](https://github.com/getmeli/meli-ui/commit/d8784e47a231fe8f0cca07178d52f01b429b529e))
+* github should not be in hook types ([4f6e1c9](https://github.com/getmeli/meli-ui/commit/4f6e1c9a275491086a9e602760647582ad7f2991))
+* github should not be in hook types ([dd39cd1](https://github.com/getmeli/meli-ui/commit/dd39cd11cc5cd561edf0adb38d66874519736308))
+* member management buttons visible to non owners ([d0d51bc](https://github.com/getmeli/meli-ui/commit/d0d51bc67c6a8ec98906db957b4d3acbd5039431))
+* site main branch is required ([76a0016](https://github.com/getmeli/meli-ui/commit/76a00167cfa727ba46e7a82913741edc71b8ea8a))
+* trigger release ([2e6fddc](https://github.com/getmeli/meli-ui/commit/2e6fddc808f383536d6dcbc0558165922528cb8a))
+* **sentry:** hide icon when not configured and reload page on enable/disable ([9eeef5f](https://github.com/getmeli/meli-ui/commit/9eeef5f917cb803481d6b0a67d84a89d493adff8))
+* tooltip overflows page bottom ([0dd0077](https://github.com/getmeli/meli-ui/commit/0dd007703b0ca79575ce7c81a277771f102a16cc))
+* wrong maintainer label in Dockerfile ([e63ccd9](https://github.com/getmeli/meli-ui/commit/e63ccd9f5e2992c3b1b530b88d7dea18146e2291))
+* **site settings:** missing default value for mainBranch ([67545f5](https://github.com/getmeli/meli-ui/commit/67545f5e63c698f501448d4ee96284038d18e55e))
+* wrong npm scope in upload snippet ([acd93cb](https://github.com/getmeli/meli-ui/commit/acd93cbb3a0e36e1e4f46271832e6bc0bba25be5))
+
+
+### Features
+
+* preformat markdown for build info ([34143f1](https://github.com/getmeli/meli-ui/commit/34143f11f7f86fa60939c57994b44592e86b0295))
+* **home:** replace app with frontend in hero message ([cb1b92a](https://github.com/getmeli/meli-ui/commit/cb1b92aee2455bcbf349f93fbdbbe5f37170354e))
+* add link to orgs when no org selected ([26d0117](https://github.com/getmeli/meli-ui/commit/26d01178b24922d9ae9083ebff0431d9afff5e1a))
+* fetch api info and copy to clipboard ([003a666](https://github.com/getmeli/meli-ui/commit/003a6667d41648c83febfb12e7a4f3a0041e7bfc))
+* force redirect path to start with a slash ([d3c0bbe](https://github.com/getmeli/meli-ui/commit/d3c0bbe9238c593f226f7bf78acb3364bcddae5c))
+* in-memory login with user and password ([6347030](https://github.com/getmeli/meli-ui/commit/6347030505bc1e6eea71ccf08ac1a63807cb94cc))
+* include sourcemaps in docker image ([e72ab62](https://github.com/getmeli/meli-ui/commit/e72ab6276ccd7d283a2eebc3310bcae1cf59b550))
+* initial commit ([5e6d11f](https://github.com/getmeli/meli-ui/commit/5e6d11f3bcec53ef76cb0869b1d7592fc9d5b95c))
+* make docker image smaller ([86a62b3](https://github.com/getmeli/meli-ui/commit/86a62b311eb3c7d838db982142baa5d987a4ed5e))
+* make org settings more obvious ([e304e04](https://github.com/getmeli/meli-ui/commit/e304e04c234f3028b02bb3a473fc726896371a30))
+* rename docker image ([78bd000](https://github.com/getmeli/meli-ui/commit/78bd0004d88382473ec656e56e57de49f050c98e))
+* rename server api url var ([76b6aef](https://github.com/getmeli/meli-ui/commit/76b6aefa56b07a5f505b1edaa8d3f7a783c22e7b))
+* use mounted state to avoid memory leaks ([fa8bfff](https://github.com/getmeli/meli-ui/commit/fa8bfffb4aa895cc31351d312632f014ed019c20))
+
 # [1.0.0-next.19](https://github.com/getmeli/meli-ui/compare/v1.0.0-next.18...v1.0.0-next.19) (2020-12-10)
 
 
