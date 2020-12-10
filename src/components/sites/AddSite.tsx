@@ -11,7 +11,7 @@ import { Button } from '../../commons/components/Button';
 import { CardModal } from '../../commons/components/modals/CardModal';
 import { Site } from './site';
 import { useMountedState } from '../../commons/hooks/use-mounted-state';
-import { useCurrentOrg } from '../../providers/OrgProvider';
+import { IsAdmin } from '../auth/IsAdmin';
 
 function AddSiteModal({ teamId, closeModal }: { teamId; closeModal }) {
   const env = useEnv();
@@ -79,11 +79,10 @@ export function AddSite({
   const [isOpen, setIsOpen] = useMountedState(false);
   const openModal = () => setIsOpen(true);
   const closeModal = () => setIsOpen(false);
-  const { currentOrg } = useCurrentOrg();
 
   return (
     <>
-      {currentOrg.isAdminOrOwner && (
+      <IsAdmin>
         <div
           onClick={openModal}
           className={className}
@@ -91,7 +90,7 @@ export function AddSite({
         >
           {children}
         </div>
-      )}
+      </IsAdmin>
       {tooltip && (
         <Tooltip id={uid} className="d-flex align-items-center">
           Add site

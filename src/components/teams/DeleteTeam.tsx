@@ -6,6 +6,7 @@ import { routerHistory } from '../../providers/history';
 import { Button } from '../../commons/components/Button';
 import { CardModal } from '../../commons/components/modals/CardModal';
 import { useMountedState } from '../../commons/hooks/use-mounted-state';
+import { IsAdmin } from '../auth/IsAdmin';
 
 export function DeleteTeam({
   id, className, children,
@@ -59,9 +60,11 @@ export function DeleteTeam({
           </Button>
         </div>
       </CardModal>
-      <div onClick={() => setIsOpen(true)} className={className}>
-        {children}
-      </div>
+      <IsAdmin>
+        <div onClick={() => setIsOpen(true)} className={className}>
+          {children}
+        </div>
+      </IsAdmin>
     </>
   );
 }

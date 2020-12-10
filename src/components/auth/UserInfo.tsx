@@ -11,6 +11,7 @@ import DropdownSeparator from '../../commons/components/dropdown/DropdownSeparat
 import { Dropdown, dropdownToggle } from '../../commons/components/dropdown/Dropdown';
 import { UserIcon } from '../icons/UserIcon';
 import { OrgIcon } from '../icons/OrgIcon';
+import { IsAdmin } from './IsAdmin';
 
 function shortenNameWithoutCss(str: string) {
   const name = str || '?';
@@ -46,15 +47,14 @@ export function UserInfo({ className }: {
         </div>
       </div>
       <Dropdown id={uid} data-event-off="click">
-        {/* TODO dropdown link header */}
-        {currentOrg?.isAdminOrOwner && (
+        <IsAdmin>
           <DropdownLink
             icon={<FontAwesomeIcon icon={faCog} fixedWidth />}
             to="/org"
           >
             Organization Settings
           </DropdownLink>
-        )}
+        </IsAdmin>
         <DropdownLink
           to="/user"
           icon={<UserIcon />}

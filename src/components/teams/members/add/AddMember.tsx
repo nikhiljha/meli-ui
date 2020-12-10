@@ -1,6 +1,4 @@
-import React, {
-  useEffect, useRef, useState,
-} from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { toast } from 'react-toastify';
 import { getMembers, OrgMembersSearchQuery } from '../../../orgs/staff/members/get-members';
 import { OrgMember } from '../../../orgs/staff/members/org-member';
@@ -14,6 +12,7 @@ import styles from './AddMember.module.scss';
 import { ListItem } from './ListItem';
 import { useCurrentOrg } from '../../../../providers/OrgProvider';
 import { useMountedState } from '../../../../commons/hooks/use-mounted-state';
+import { IsAdmin } from '../../../auth/IsAdmin';
 
 export function AddMember({
   teamId, className, children, onAdded,
@@ -114,9 +113,11 @@ export function AddMember({
           </ul>
         )}
       </CardModal>
-      <div onClick={() => setIsOpen(true)} className={className}>
-        {children}
-      </div>
+      <IsAdmin>
+        <div onClick={() => setIsOpen(true)} className={className}>
+          {children}
+        </div>
+      </IsAdmin>
     </>
   );
 }

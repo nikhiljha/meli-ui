@@ -5,6 +5,7 @@ import { axios } from '../../../providers/axios';
 import { CardModal } from '../../../commons/components/modals/CardModal';
 import { useEnv } from '../../../providers/EnvProvider';
 import { useMountedState } from '../../../commons/hooks/use-mounted-state';
+import { IsAdmin } from '../../auth/IsAdmin';
 
 export function DeleteMember({
   teamId, memberId, className, children, onDelete,
@@ -60,9 +61,12 @@ export function DeleteMember({
           </Button>
         </div>
       </CardModal>
-      <div onClick={() => setIsOpen(true)} className={className}>
-        {children}
-      </div>
+
+      <IsAdmin>
+        <div onClick={() => setIsOpen(true)} className={className}>
+          {children}
+        </div>
+      </IsAdmin>
     </>
   );
 }

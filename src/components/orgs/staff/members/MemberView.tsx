@@ -15,6 +15,7 @@ import { useCurrentOrg } from '../../../../providers/OrgProvider';
 import { Loader } from '../../../../commons/components/Loader';
 import { DropdownLink } from '../../../../commons/components/dropdown/DropdownLink';
 import { useMountedState } from '../../../../commons/hooks/use-mounted-state';
+import { IsOwner } from '../../../auth/IsOwner';
 
 function AdminToggle({ member, setMember }: {
   member: OrgMember;
@@ -78,27 +79,24 @@ export function MemberView({
       </div>
 
       <div className="d-flex align-items-center">
-        {!member.owner && currentOrg.isOwner && (
+        <IsOwner>
+          {!member.owner && (
           <AdminToggle
             member={member}
             setMember={setMember}
           />
-        )}
-
-        {currentOrg.isOwner && (
-          <>
-            <ButtonIcon className="ml-3" {...dropdownToggle(uid)}>
-              <FontAwesomeIcon icon={faEllipsisV} />
-            </ButtonIcon>
-            <Dropdown id={uid}>
-              <DeleteMember memberId={member._id} onDelete={onDelete}>
-                <DropdownLink icon={<FontAwesomeIcon icon={faTrashAlt} />} disabled={member.owner}>
-                  Delete
-                </DropdownLink>
-              </DeleteMember>
-            </Dropdown>
-          </>
-        )}
+          )}
+          <ButtonIcon className="ml-3" {...dropdownToggle(uid)}>
+            <FontAwesomeIcon icon={faEllipsisV} />
+          </ButtonIcon>
+          <Dropdown id={uid}>
+            <DeleteMember memberId={member._id} onDelete={onDelete}>
+              <DropdownLink icon={<FontAwesomeIcon icon={faTrashAlt} />} disabled={member.owner}>
+                Delete
+              </DropdownLink>
+            </DeleteMember>
+          </Dropdown>
+        </IsOwner>
       </div>
     </li>
   );

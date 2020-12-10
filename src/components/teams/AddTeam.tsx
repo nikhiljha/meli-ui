@@ -16,6 +16,7 @@ import { isMac, isWindows } from '../../commons/utils/os';
 import { Team } from './team';
 import { useCurrentOrg } from '../../providers/OrgProvider';
 import { useMountedState } from '../../commons/hooks/use-mounted-state';
+import { IsAdmin } from '../auth/IsAdmin';
 
 function AddTeamModal({ closeModal, onAdded }: {
   closeModal;
@@ -90,23 +91,22 @@ export function AddTeam({
   const [isOpen, setIsOpen] = useMountedState(false);
   const openModal = () => setIsOpen(true);
   const closeModal = () => setIsOpen(false);
-  const { currentOrg: { isAdminOrOwner } } = useCurrentOrg();
 
   useShortcut(ADD_TEAM_SHORTCUT_KEY, () => setIsOpen(true));
 
   const shortCut = isMac() ? '⌘' : isWindows() ? 'Ctrl' : undefined;
 
-  return !isAdminOrOwner ? (
-    <></>
-  ) : (
+  return (
     <>
-      <div
-        onClick={openModal}
-        className={className}
-        {...tooltipToggle(uid)}
-      >
-        {children}
-      </div>
+      <IsAdmin>
+        <div
+          onClick={openModal}
+          className={className}
+          {...tooltipToggle(uid)}
+        >
+          {children}
+        </div>
+      </IsAdmin>
       {tooltip && (
         <Tooltip id={uid} className="d-flex align-items-center">
           Add team
