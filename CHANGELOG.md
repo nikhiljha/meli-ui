@@ -1,3 +1,10 @@
+# [1.0.0-next.17](https://github.com/getmeli/meli-ui/compare/v1.0.0-next.16...v1.0.0-next.17) (2020-12-10)
+
+
+### Features
+
+* preformat markdown for build info ([34143f1](https://github.com/getmeli/meli-ui/commit/34143f11f7f86fa60939c57994b44592e86b0295))
+
 # [1.0.0-next.16](https://github.com/getmeli/meli-ui/compare/v1.0.0-next.15...v1.0.0-next.16) (2020-12-10)
 
 
