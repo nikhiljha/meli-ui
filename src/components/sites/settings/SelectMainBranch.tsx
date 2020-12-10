@@ -9,7 +9,6 @@ import styles from './SelectMainBranch.module.scss';
 import { Loader } from '../../../commons/components/Loader';
 import { AlertError } from '../../../commons/components/AlertError';
 import { InputError } from '../../../commons/components/forms/InputError';
-import { required } from '../../../commons/components/forms/form-constants';
 
 function useBranches(siteId: string) {
   const env = useEnv();
@@ -53,9 +52,7 @@ export function SelectMainBranch({ siteId }: {
       <Controller
         control={control}
         name="mainBranch"
-        rules={{
-          required,
-        }}
+        rules={{}}
         defaultValue={undefined}
         render={({ value, onChange }) => (
           <CustomSelect
