@@ -34,6 +34,12 @@ function useApiInfo() {
   };
 }
 
+function getMarkdown(data) {
+  return `\`\`\`json
+${JSON.stringify(data, null, 2)}
+\`\`\``;
+}
+
 export function BuildInfo({ className }: {
   className?;
 }) {
@@ -48,13 +54,13 @@ export function BuildInfo({ className }: {
     api: undefined,
   });
 
-  const [json, setJson] = useState(JSON.stringify(jsonRef.current, null, 2));
+  const [json, setJson] = useState(getMarkdown(jsonRef.current));
 
   useEffect(() => {
     if (apiInfo) {
       jsonRef.current.api = apiInfo;
     }
-    setJson(JSON.stringify(jsonRef.current, null, 2));
+    setJson(getMarkdown(jsonRef.current));
   }, [apiInfo]);
 
   return (
