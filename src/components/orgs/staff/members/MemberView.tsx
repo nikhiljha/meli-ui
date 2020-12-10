@@ -44,7 +44,7 @@ function AdminToggle({ member, setMember }: {
       togglePosition="right"
       value={member.admin}
       onChange={toggle}
-      disabled={loading || member.owner}
+      disabled={loading}
     >
       {loading && (
         <Loader className="mr-2" />
@@ -78,21 +78,27 @@ export function MemberView({
       </div>
 
       <div className="d-flex align-items-center">
-        <AdminToggle
-          member={member}
-          setMember={setMember}
-        />
+        {!member.owner && currentOrg.isOwner && (
+          <AdminToggle
+            member={member}
+            setMember={setMember}
+          />
+        )}
 
-        <ButtonIcon className="ml-3" {...dropdownToggle(uid)}>
-          <FontAwesomeIcon icon={faEllipsisV} />
-        </ButtonIcon>
-        <Dropdown id={uid}>
-          <DeleteMember memberId={member._id} onDelete={onDelete}>
-            <DropdownLink icon={<FontAwesomeIcon icon={faTrashAlt} />} disabled={member.owner}>
-              Delete
-            </DropdownLink>
-          </DeleteMember>
-        </Dropdown>
+        {currentOrg.isOwner && (
+          <>
+            <ButtonIcon className="ml-3" {...dropdownToggle(uid)}>
+              <FontAwesomeIcon icon={faEllipsisV} />
+            </ButtonIcon>
+            <Dropdown id={uid}>
+              <DeleteMember memberId={member._id} onDelete={onDelete}>
+                <DropdownLink icon={<FontAwesomeIcon icon={faTrashAlt} />} disabled={member.owner}>
+                  Delete
+                </DropdownLink>
+              </DeleteMember>
+            </Dropdown>
+          </>
+        )}
       </div>
     </li>
   );
