@@ -1,3 +1,10 @@
+# [1.0.0-next.19](https://github.com/getmeli/meli-ui/compare/v1.0.0-next.18...v1.0.0-next.19) (2020-12-10)
+
+
+### Bug Fixes
+
+* trigger release ([2e6fddc](https://github.com/getmeli/meli-ui/commit/2e6fddc808f383536d6dcbc0558165922528cb8a))
+
 # [1.0.0-next.18](https://github.com/getmeli/meli-ui/compare/v1.0.0-next.17...v1.0.0-next.18) (2020-12-10)
 
 
