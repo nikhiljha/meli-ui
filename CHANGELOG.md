@@ -1,3 +1,10 @@
+# [1.0.0-next.18](https://github.com/getmeli/meli-ui/compare/v1.0.0-next.17...v1.0.0-next.18) (2020-12-10)
+
+
+### Bug Fixes
+
+* member management buttons visible to non owners ([d0d51bc](https://github.com/getmeli/meli-ui/commit/d0d51bc67c6a8ec98906db957b4d3acbd5039431))
+
 # [1.0.0-next.17](https://github.com/getmeli/meli-ui/compare/v1.0.0-next.16...v1.0.0-next.17) (2020-12-10)
 
 
