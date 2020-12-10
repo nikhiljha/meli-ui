@@ -7,6 +7,7 @@ export function OrgMemberIcon({ className }: { className? }) {
     <FontAwesomeIcon
       icon={faUserAstronaut}
       className={className}
+      fixedWidth
     />
   );
 }

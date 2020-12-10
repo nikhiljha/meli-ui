@@ -7,6 +7,7 @@ export function SiteIcon({ className }: { className? }) {
     <FontAwesomeIcon
       icon={faRocket}
       className={className}
+      fixedWidth
     />
   );
 }

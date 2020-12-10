@@ -7,6 +7,7 @@ export function BranchIcon({ className }: { className? }) {
     <FontAwesomeIcon
       icon={faCodeBranch}
       className={className}
+      fixedWidth
     />
   );
 }

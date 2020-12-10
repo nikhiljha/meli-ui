@@ -7,6 +7,7 @@ export function TokenIcon({ className }: { className? }) {
     <FontAwesomeIcon
       icon={faKey}
       className={className}
+      fixedWidth
     />
   );
 }

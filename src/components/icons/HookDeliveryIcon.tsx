@@ -7,6 +7,7 @@ export function HookDeliveryIcon({ className }: { className? }) {
     <FontAwesomeIcon
       icon={faPaperPlane}
       className={className}
+      fixedWidth
     />
   );
 }

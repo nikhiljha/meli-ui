@@ -7,6 +7,7 @@ export function RedirectIcon({ className }: { className? }) {
     <FontAwesomeIcon
       icon={faDirections}
       className={className}
+      fixedWidth
     />
   );
 }

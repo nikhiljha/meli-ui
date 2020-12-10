@@ -7,6 +7,7 @@ export function TeamIcon({ className }: { className? }) {
     <FontAwesomeIcon
       icon={faSpaceShuttle}
       className={className}
+      fixedWidth
     />
   );
 }

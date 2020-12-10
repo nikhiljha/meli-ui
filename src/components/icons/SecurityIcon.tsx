@@ -7,6 +7,7 @@ export function SecurityIcon({ className }: { className? }) {
     <FontAwesomeIcon
       icon={faLock}
       className={className}
+      fixedWidth
     />
   );
 }

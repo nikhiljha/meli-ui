@@ -7,6 +7,7 @@ export function SettingsIcon({ className }: { className? }) {
     <FontAwesomeIcon
       icon={faWrench}
       className={className}
+      fixedWidth
     />
   );
 }

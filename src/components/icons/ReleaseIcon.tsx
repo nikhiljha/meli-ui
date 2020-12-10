@@ -7,6 +7,7 @@ export function ReleaseIcon({ className }: { className? }) {
     <FontAwesomeIcon
       icon={faList}
       className={className}
+      fixedWidth
     />
   );
 }

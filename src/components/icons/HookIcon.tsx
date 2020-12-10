@@ -7,6 +7,7 @@ export function HookIcon({ className }: { className? }) {
     <FontAwesomeIcon
       icon={faBell}
       className={className}
+      fixedWidth
     />
   );
 }

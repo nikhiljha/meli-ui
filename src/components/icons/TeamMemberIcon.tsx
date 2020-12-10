@@ -7,6 +7,7 @@ export function TeamMemberIcon({ className }: { className? }) {
     <FontAwesomeIcon
       icon={faUserAstronaut}
       className={className}
+      fixedWidth
     />
   );
 }

@@ -7,6 +7,7 @@ export function InviteIcon({ className }: { className? }) {
     <FontAwesomeIcon
       icon={faPaperPlane}
       className={className}
+      fixedWidth
     />
   );
 }
