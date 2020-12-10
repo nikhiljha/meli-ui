@@ -1,3 +1,10 @@
+# [1.0.0-next.16](https://github.com/getmeli/meli-ui/compare/v1.0.0-next.15...v1.0.0-next.16) (2020-12-10)
+
+
+### Bug Fixes
+
+* site main branch is required ([76a0016](https://github.com/getmeli/meli-ui/commit/76a00167cfa727ba46e7a82913741edc71b8ea8a))
+
 # [1.0.0-next.15](https://github.com/getmeli/meli-ui/compare/v1.0.0-next.14...v1.0.0-next.15) (2020-12-09)
 
 
