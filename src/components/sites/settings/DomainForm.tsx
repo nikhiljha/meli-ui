@@ -29,8 +29,8 @@ export function ManualConfig({ input, item }: { input: string; item: SiteDomain 
   return (
     <>
       <div className="form-row d-flex align-items-center">
-        <div className="form-group">
-          <label htmlFor={sslFullchain}>Certificate (and chain):</label>
+        <div className="form-group col">
+          <label htmlFor={sslFullchain}>Certificate (and chain) (PEM):</label>
           <textarea
             name={sslFullchain}
             id={sslFullchain}
@@ -42,8 +42,8 @@ export function ManualConfig({ input, item }: { input: string; item: SiteDomain 
         </div>
       </div>
       <div className="form-row d-flex align-items-center">
-        <div className="form-group">
-          <label htmlFor={sslPrivateKey}>Private key:</label>
+        <div className="form-group col">
+          <label htmlFor={sslPrivateKey}>Private key (RSA, PEM):</label>
           <textarea
             name={sslPrivateKey}
             id={sslPrivateKey}
