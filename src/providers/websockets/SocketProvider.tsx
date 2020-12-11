@@ -1,6 +1,4 @@
-import React, {
-  createContext, useContext, useEffect, useRef, useState,
-} from 'react';
+import React, { createContext, useContext, useEffect, useRef, useState } from 'react';
 import openSocket from 'socket.io-client';
 import { useEnv } from '../EnvProvider';
 
@@ -18,7 +16,12 @@ export function SocketProvider(props) {
     if (socketRef.current) {
       socketRef.current.close();
     }
-    const sock: SocketIOClient.Socket = openSocket(env.MELI_API_URL);
+    const url = new URL(env.MELI_API_URL);
+    const sock: SocketIOClient.Socket = openSocket({
+      host: url.host,
+      path: `${url.pathname}/socket.io`.replace(/\/+/g, '/'),
+      secure: url.protocol === 'https:',
+    });
     socketRef.current = sock;
     setSocket(sock);
   }, [env]);
