@@ -1,3 +1,10 @@
+# [1.0.0-next.20](https://github.com/getmeli/meli-ui/compare/v1.0.0-next.19...v1.0.0-next.20) (2020-12-11)
+
+
+### Features
+
+* allow using subpaths for api url ([13cb7dd](https://github.com/getmeli/meli-ui/commit/13cb7ddf99103c474324b20c479815daebc85091))
+
 # 1.0.0-beta.1 (2020-12-10)
 
 
