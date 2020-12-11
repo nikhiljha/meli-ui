@@ -1,6 +1,6 @@
 {
   "name": "@getmeli/ui",
-  "version": "1.0.0-next.20",
+  "version": "1.0.0-next.21",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.32",

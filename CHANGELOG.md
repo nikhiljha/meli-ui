@@ -1,3 +1,10 @@
+# [1.0.0-next.21](https://github.com/getmeli/meli-ui/compare/v1.0.0-next.20...v1.0.0-next.21) (2020-12-11)
+
+
+### Bug Fixes
+
+* improve domain form ([f3f205f](https://github.com/getmeli/meli-ui/commit/f3f205f0bbcde834b9a79c471baba1c90c426836))
+
 # [1.0.0-next.20](https://github.com/getmeli/meli-ui/compare/v1.0.0-next.19...v1.0.0-next.20) (2020-12-11)
 
 
