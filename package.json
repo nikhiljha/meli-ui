@@ -84,7 +84,7 @@
     "@types/react-router-dom": "^5.1.5",
     "@types/react-transition-group": "^4.4.0",
     "@types/socket.io-client": "^1.4.33",
-    "docker-semver-tags": "^1.1.0",
+    "docker-semver-tags": "^1.2.0",
     "eslint": "^6.8.0",
     "eslint-config-airbnb": "^18.2.0",
     "eslint-import-resolver-typescript": "^2.3.0",
@@ -93,6 +93,6 @@
     "eslint-plugin-react": "^7.20.6",
     "eslint-plugin-react-hooks": "^4.1.0",
     "semantic-release": "^17.2.2",
-    "semantic-release-license": "^1.0.0"
+    "semantic-release-license": "^1.0.1"
   }
 }
