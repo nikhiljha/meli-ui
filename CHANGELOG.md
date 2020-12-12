@@ -1,16 +1,16 @@
-# [1.0.0-next.21](https://github.com/getmeli/meli-ui/compare/v1.0.0-next.20...v1.0.0-next.21) (2020-12-11)
+# [1.0.0-beta.3](https://github.com/getmeli/meli-ui/compare/v1.0.0-beta.2...v1.0.0-beta.3) (2020-12-12)
 
 
 ### Bug Fixes
 
-* improve domain form ([f3f205f](https://github.com/getmeli/meli-ui/commit/f3f205f0bbcde834b9a79c471baba1c90c426836))
+* update license change date ([b18d955](https://github.com/getmeli/meli-ui/commit/b18d95533fdaba4d8b1ff4c729a4b85e09fdc80a))
 
-# [1.0.0-next.20](https://github.com/getmeli/meli-ui/compare/v1.0.0-next.19...v1.0.0-next.20) (2020-12-11)
+# [1.0.0-beta.2](https://github.com/getmeli/meli-ui/compare/v1.0.0-beta.1...v1.0.0-beta.2) (2020-12-12)
 
 
-### Features
+### Bug Fixes
 
-* allow using subpaths for api url ([13cb7dd](https://github.com/getmeli/meli-ui/commit/13cb7ddf99103c474324b20c479815daebc85091))
+* incorrect license change date ([7bfd311](https://github.com/getmeli/meli-ui/commit/7bfd311b3f035963535af645286133edaa04840e))
 
 # 1.0.0-beta.1 (2020-12-10)
 
