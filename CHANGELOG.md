@@ -1,3 +1,10 @@
+# [1.0.0-beta.2](https://github.com/getmeli/meli-ui/compare/v1.0.0-beta.1...v1.0.0-beta.2) (2020-12-12)
+
+
+### Bug Fixes
+
+* incorrect license change date ([7bfd311](https://github.com/getmeli/meli-ui/commit/7bfd311b3f035963535af645286133edaa04840e))
+
 # 1.0.0-beta.1 (2020-12-10)
 
 
