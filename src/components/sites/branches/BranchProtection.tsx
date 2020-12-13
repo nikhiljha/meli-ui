@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
+import classNames from 'classnames';
 import { Toggle } from '../../../commons/components/forms/Toggle';
 import { CardModal } from '../../../commons/components/modals/CardModal';
 import { Branch } from './branch';
@@ -77,9 +78,14 @@ export function BranchProtection({
         value={!!branch.hasPassword}
         onChange={() => (branch.hasPassword ? removePassword() : openModal())}
         loading={branch.hasPassword && loading}
-        className={className}
+        className={classNames(className, 'w-100')}
       >
-        protected
+        <div>
+          protected (user name is
+          {' '}
+          <strong>root</strong>
+          )
+        </div>
       </Toggle>
       <CardModal isOpen={isOpen} closeModal={closeModal} title="Set branch password">
         <form onSubmit={handleSubmit(setPassword)}>
