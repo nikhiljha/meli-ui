@@ -10,6 +10,7 @@ import { SignInWithGitea } from './methods/SignInWithGitea';
 import { SignInWithGitlab } from './methods/SignInWithGitlab';
 import { SignInWithGithub } from './methods/SignInWithGithub';
 import { SignInWithGoogle } from './methods/SignInWithGoogle';
+import { SignInWithSSO } from './methods/SignInWithSSO';
 import { SignInWithUserPassword } from './methods/SignInWithUserPassword';
 
 export function SignIn() {
@@ -58,6 +59,9 @@ export function SignIn() {
               )}
               {signInMethods.includes('google') && (
                 <SignInWithGoogle />
+              )}
+              {signInMethods.includes('oidc') && (
+                <SignInWithSSO />
               )}
             </div>
           </div>

@@ -1,0 +1,11 @@
+@import '../../../styles/variables';
+
+.oidc {
+  background: $oidc-bg;
+}
+
+.icon {
+  color: $oidc-color;
+  display: block;
+  width: 100%;
+}
